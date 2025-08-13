@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/l03qKXBMMQ=",
+  "dgSpecHash": "qpIhnfX+hMg=",
   "success": true,
-  "projectFilePath": "D:\\projectcASP\\DemoCauTruc\\DemoCauTruc\\DemoCauTruc.csproj",
+  "projectFilePath": "D:\\Sixos\\DemoCauTruc\\DemoCauTruc\\DemoCauTruc.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Asus\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

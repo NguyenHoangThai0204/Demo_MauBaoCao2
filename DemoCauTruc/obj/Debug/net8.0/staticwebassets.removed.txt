@@ -1,1 +1,1 @@
-D:\projectcASP\DemoCauTruc\DemoCauTruc\wwwroot\dist\css\DCSS0302\D0302Styles.css
+D:\Sixos\DemoCauTruc\DemoCauTruc\wwwroot\dist\js\D0302\D0302GoiKham.js

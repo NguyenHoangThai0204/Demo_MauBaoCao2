@@ -6,22 +6,9 @@
     <title>Demo Cấu trúc thư mục</title>
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="~/dist/lib/bootstrap/dist/css/bootstrap.min.css" />
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="~/dist/lib/fontawesome-free-6.4.0-web/css/all.min.css" />
-
-    <!-- Bootstrap Datepicker CSS -->
+    <link rel="stylesheet" href="~/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/dist/lib/litepicker/dist/css/litepicker.css" />
     <link rel="stylesheet" href="~/dist/lib/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
-
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="~/dist/lib/bootstrap-icons/font/bootstrap-icons.css">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="~/dist/css/site.css" asp-append-version="true" />
-
-    <!-- Thêm vào _Layout.cshtml hoặc trang view của bạn -->
-    <link href="~/dist/lib/toastr/build/toastr.min.css" rel="stylesheet" />
 </head>
 <body>
     <header>
@@ -52,29 +39,13 @@
         </main>
     </div>
 
-    @* <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2025 - Thai_Mau2 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer> *@
+
     <!-- jQuery -->
-    <script src="~/dist/lib/jquery/dist/jquery.min.js"></script>
-
-    <!-- Bootstrap Bundle (bao gồm Popper) -->
-    <script src="~/dist/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-
+    <script src="@Url.Content("~/dist/lib/Jquery/jquery.min.js")"></script>
+    <script src="@Url.Content("~/dist/lib/Jquery/jquery.inputmask.js")"></script>
     <!-- Bootstrap Datepicker JS -->
     <script src="~/dist/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
     <script src="~/dist/lib/bootstrap-datepicker/dist/locales/bootstrap-datepicker.vi.min.js"></script>
-
-
-    <!-- Inputmask -->
-    <script src="~/dist/lib/inputmask/dist/jquery.inputmask.min.js"></script>
-
-    <!-- Moment.js -->
-    <script src="~/dist/lib/moment/min/moment.min.js"></script>
-
-    <script src="~/dist/lib/toastr/build/toastr.min.js"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

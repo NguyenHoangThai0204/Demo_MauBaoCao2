@@ -17,7 +17,9 @@
 						   placeholder="dd-mm-yyyy"
 						   autocomplete="off" />
 					<span class="input-group-text cursor-pointer datepicker-trigger">
-						<i class="bi bi-calendar"></i>
+						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6c757d">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+						</svg>
 					</span>
 				</div>
 				<span class="text-danger"></span>
@@ -33,7 +35,9 @@
 						   placeholder="dd-mm-yyyy"
 						   autocomplete="off" />
 					<span class="input-group-text cursor-pointer datepicker-trigger">
-						<i class="bi bi-calendar"></i>
+						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6c757d">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+						</svg>
 					</span>
 				</div>
 				<span class="text-danger"></span>
@@ -108,29 +112,9 @@
 	</div>
 </div>
 
+
+
 @section Scripts {
 	<script src="/dist/js/BienChung.js"></script>
-	<script src="/dist/js/D0302/D0302GoiKham.js"></script>
-	<script>
-
-		$(document).ready(function() {
-			// Hiển thị thông báo thành công
-			var successMessage = '@Html.Raw(TempData["SuccessMessage"] as string)';
-			if (successMessage) {
-				toastr.success(decodeHTMLEntities(successMessage));
-			}
-
-			// Hiển thị thông báo lỗi
-			var errorMessage = '@Html.Raw(TempData["ErrorMessage"] as string)';
-			if (errorMessage) {
-				toastr.error(decodeHTMLEntities(errorMessage));
-			}
-
-			function decodeHTMLEntities(text) {
-				var textArea = document.createElement('textarea');
-				textArea.innerHTML = text;
-				return textArea.value;
-			}
-		});
-	</script>
+	<script src="/dist/js/J0302/J0302GoiKham.js"></script>
 }
