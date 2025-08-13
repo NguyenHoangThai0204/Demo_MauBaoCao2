@@ -1,0 +1,226 @@
+﻿.table-wrapper {
+    overflow-y: auto;
+    overflow-x: auto;
+    height: 68vh;
+    -webkit-overflow-scrolling: touch;
+    /* Ẩn thanh scroll trên tất cả trình duyệt */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE và Edge cũ */
+}
+
+    .table-wrapper::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Edge mới */
+    }
+
+
+.column-toggle-dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.table-wrapper table {
+    border-collapse: separate; /* từ collapse sang separate */
+    border-spacing: 0;
+    width: 100%;
+    min-width: 600px; /* Minimum width for tables */
+    table-layout: fixed;
+}
+
+.table-wrapper th,
+.table-wrapper td {
+    border: 1px solid #ccc;
+    padding: 6px;
+    text-align: center;
+}
+
+.table-wrapper th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    font-size: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 3;
+}
+
+.table-wrapper td {
+    font-size: 1rem;
+}
+/* thêm hover cho td màu xanh nhạt*/
+
+.table-wrapper tr:hover td {
+    background-color: #e6f7ff; /* Màu xanh nhạt */
+}
+
+.table-wrapper th:first-child {
+    border-left: 1px solid #ccc !important;
+}
+
+.table-wrapper th:last-child {
+    border-right: 1px solid #ccc !important;
+}
+.form-label{
+    margin: auto !important;
+}
+label {
+    font-size: 1rem !important;
+    font-weight: 600;
+    margin: 5px 0 4px 0;
+}
+
+.container_goiKham {
+    display: flex;
+    justify-content: space-around;
+}
+
+    .container_goiKham.left {
+        display: block;
+        width: 12%;
+    }
+
+    .container_goiKham.right {
+        width: 85%;
+        display: block;
+    }
+
+
+
+.container_goiKham.left .row {
+    font-size: 1rem;
+}
+
+    .container_goiKham.left .row button {
+        width: 100%;
+        font-size: 0.8rem;
+    }
+
+    /* Container cho hai nút xuất file */
+    .container_goiKham.left .row.export-buttons {
+        display: flex;
+        font-size: 0.8rem;
+        gap: 8px; /* Khoảng cách giữa nút */
+    }
+
+        /* Mỗi nút chiếm 50% */
+        .container_goiKham.left .row.export-buttons button {
+            flex: 1;
+            padding: 8px;
+            font-size: 0.8rem;
+        }
+
+.datepicker {
+    font-size: 0.9rem;
+    transform: scale(1.2);
+    transform-origin: top left;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    margin-left: 5px;
+    z-index: 99999 !important;
+    background: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+input {
+    font-size: 1rem !important;
+    margin: 5px 0;
+    font-weight: 400;
+}
+
+.input-group {
+    align-items: center;
+}
+
+    .input-group .form-control {
+        font-size: 1rem;
+        padding: 8px 12px;
+        height: 42px; /* Đặt cố định để khớp */
+    }
+
+.input-group-text {
+    font-size: 1rem;
+    padding: 0 12px;
+    display: flex;
+    align-items: center; /* Căn giữa dọc icon */
+    justify-content: center;
+    height: 42px; /* Giống input */
+}
+
+    .input-group-text i {
+        font-size: 1rem;
+    }
+
+#btnFilter {
+    margin: 8px 0 6px 0 !important;
+}
+/* Phân trang */
+.pagination {
+    margin: 0;
+}
+
+.page-item.active .page-link {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.page-link {
+    color: #0d6efd;
+}
+
+.page-item.disabled .page-link {
+    color: #6c757d;
+}
+
+.page-link:hover {
+    color: #0a58ca;
+}
+
+#pageInfo {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+/* Dropdown chọn số bản ghi */
+#pageSizeSelect {
+    width: auto;
+    display: inline-block;
+    margin-left: 10px;
+}
+/* Giữ phân trang cố định ở dưới */
+.phan_trang {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding-right: 30px;
+    flex-wrap: nowrap;
+    margin: 20px auto !important;
+    font-size: 1rem;
+    gap: 10px;
+    min-height: 50px; /* Chiều cao tối thiểu để không bị nhảy */
+}
+
+    .phan_trang label {
+        margin-bottom: 0;
+    }
+
+.page-link:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+#loadingSpinner {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    /* Tăng kích thước spinner */
+    width: 100px; /* Chiều rộng */
+    height: 100px; /* Chiều cao */
+}
+
+    /* Nếu dùng Bootstrap spinner */
+    #loadingSpinner .spinner-border {
+        width: 5rem; /* Tăng gấp 5 lần kích thước mặc định */
+        height: 5rem;
+        border-width: 0.5em; /* Độ dày viền */
+    }
