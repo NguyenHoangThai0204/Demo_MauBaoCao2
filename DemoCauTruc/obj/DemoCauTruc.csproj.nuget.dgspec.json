@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Sixos\\DemoCauTruc\\DemoCauTruc\\DemoCauTruc.csproj": {}
+    "D:\\Sixos\\Demo_MauBaoCao2\\DemoCauTruc\\DemoCauTruc.csproj": {}
   },
   "projects": {
-    "D:\\Sixos\\DemoCauTruc\\DemoCauTruc\\DemoCauTruc.csproj": {
+    "D:\\Sixos\\Demo_MauBaoCao2\\DemoCauTruc\\DemoCauTruc.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Sixos\\DemoCauTruc\\DemoCauTruc\\DemoCauTruc.csproj",
+        "projectUniqueName": "D:\\Sixos\\Demo_MauBaoCao2\\DemoCauTruc\\DemoCauTruc.csproj",
         "projectName": "DemoCauTruc",
-        "projectPath": "D:\\Sixos\\DemoCauTruc\\DemoCauTruc\\DemoCauTruc.csproj",
+        "projectPath": "D:\\Sixos\\Demo_MauBaoCao2\\DemoCauTruc\\DemoCauTruc.csproj",
         "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-        "outputPath": "D:\\Sixos\\DemoCauTruc\\DemoCauTruc\\obj\\",
+        "outputPath": "D:\\Sixos\\Demo_MauBaoCao2\\DemoCauTruc\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

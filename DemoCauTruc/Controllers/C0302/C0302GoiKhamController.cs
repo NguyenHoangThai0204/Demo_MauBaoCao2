@@ -26,6 +26,16 @@ namespace DemoCauTruc.Controllers.C0302
 
         public IActionResult Index()
         {
+            ViewBag.quyenVaiTro = new
+            {
+                Them = true,
+                Sua = true,
+                Xoa = true,
+                Xuat = true,
+                CaNhan = true,
+                Xem = true,
+            };
+
             return View("~/Views/V0302/V0302GoiKham/Index.cshtml");
         }
 

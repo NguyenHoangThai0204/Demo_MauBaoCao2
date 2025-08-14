@@ -73,11 +73,11 @@ label {
 
     .container_goiKham.left {
         display: block;
-        width: 12%;
+        width: 14%;
     }
 
     .container_goiKham.right {
-        width: 85%;
+        width: 83%;
         display: block;
     }
 
@@ -224,3 +224,21 @@ input {
         height: 5rem;
         border-width: 0.5em; /* Độ dày viền */
     }
+
+
+/* Đảm bảo tất cả select đồng nhất */
+#selectContainer .form-select {
+    width: 100% !important;
+    padding: 0.375rem 0.75rem !important;
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+    height: calc(1.5em + 0.75rem + 2px) !important;
+}
+
+/* Container chứa select */
+#selectContainer {
+    gap: 10px; /* Khoảng cách giữa các select */
+}
+
+
+

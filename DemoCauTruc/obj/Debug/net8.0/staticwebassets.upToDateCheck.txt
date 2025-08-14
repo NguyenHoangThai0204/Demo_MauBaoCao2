@@ -28,6 +28,7 @@ wwwroot\dist\css\tabler.rtl.min.css
 wwwroot\dist\css\treeview.css
 wwwroot\dist\img\logo.png
 wwwroot\dist\js\BienChung.js
+wwwroot\dist\js\J0302\J0302GoiKham.js
 wwwroot\dist\lib\apexcharts\dist\apexcharts.amd.js
 wwwroot\dist\lib\apexcharts\dist\apexcharts.common.js
 wwwroot\dist\lib\apexcharts\dist\apexcharts.css
@@ -301,9 +302,9 @@ wwwroot\dist\lib\fslightbox\index.js
 wwwroot\dist\lib\fslightbox\LICENSE
 wwwroot\dist\lib\fslightbox\package.json
 wwwroot\dist\lib\fslightbox\README.md
-wwwroot\dist\lib\Jquery\jquery.inputmask.js
-wwwroot\dist\lib\Jquery\jquery.min.js
-wwwroot\dist\lib\Jquery\LICENSE.txt
+wwwroot\dist\lib\jquery\jquery.inputmask.js
+wwwroot\dist\lib\jquery\jquery.min.js
+wwwroot\dist\lib\jquery\LICENSE.txt
 wwwroot\dist\lib\jsvectormap\dist\js\jsvectormap.js
 wwwroot\dist\lib\jsvectormap\dist\js\jsvectormap.min.js
 wwwroot\dist\lib\jsvectormap\dist\maps\world-merc.js
@@ -965,4 +966,3 @@ wwwroot\dist\lib\tom-select\dist\js\tom-select.popular.js.map
 wwwroot\dist\lib\tom-select\dist\js\tom-select.popular.min.js
 wwwroot\dist\lib\tom-select\dist\js\tom-select.popular.min.js.map
 wwwroot\favicon.ico
-wwwroot\dist\js\J0302\J0302GoiKham.js

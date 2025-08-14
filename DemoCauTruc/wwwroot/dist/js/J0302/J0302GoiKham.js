@@ -165,24 +165,74 @@ function renderPagination() {
 }
 
 // ==================== LỌC DỮ LIỆU ====================
+//function filterData(isPagination = false) {
+//    const tuNgay = $('#ngayTuNgay').val();
+//    const denNgay = $('#ngayDenNgay').val();
+
+//    if (!isPagination && (!tuNgay || !denNgay)) {
+//        alert("Vui lòng chọn cả từ ngày và đến ngày");
+//        return;
+//    }
+
+//    if (!isPagination) {
+//        function parseDMY(s) {
+//            const p = s.split('-');
+//            return new Date(p[2], p[1] - 1, p[0]);
+//        }
+//        if (parseDMY(tuNgay) > parseDMY(denNgay)) {
+//            alert("Từ ngày phải bé hơn đến ngày");
+//            tuNgay = $('#ngayDenNgay').val();
+//            //return;
+//        }
+//    }
+   
+//    $('#loadingSpinner').show();
+//    $('.table-wrapper').css('opacity', '0.5');
+
+//    $.ajax({
+//        url: '/bao_cao_thuc_hien_theo_doi_goi_kham_benh/filter',
+//        type: 'POST',
+//        data: {
+//            tuNgay: tuNgay,
+//            denNgay: denNgay,
+//            IdChiNhanh: _idcn,
+//            page: currentPage,
+//            pageSize: pageSize
+//        },
+//        success: function (response) {
+//            if (response.success) {
+//                updateTable(response);
+//                window.filteredData = Array.isArray(response.data) ? response.data : (response.data ? [response.data] : []);
+//                totalRecords = response.totalRecords || totalRecords;
+//                totalPages = response.totalPages || totalPages;
+//                window.doanhNghiep = response.doanhNghiep || null;
+//            } else {
+//                console.error("Có lỗi khi lọc dữ liệu");
+//            }
+//        },
+//        complete: function () {
+//            $('#loadingSpinner').hide();
+//            $('.table-wrapper').css('opacity', '1');
+//        }
+//    });
+//}
 function filterData(isPagination = false) {
-    const tuNgay = $('#ngayTuNgay').val();
-    const denNgay = $('#ngayDenNgay').val();
+    let tuNgay = $('#ngayTuNgay').val();
+    let denNgay = $('#ngayDenNgay').val();
 
     if (!isPagination && (!tuNgay || !denNgay)) {
         alert("Vui lòng chọn cả từ ngày và đến ngày");
         return;
     }
 
-    if (!isPagination) {
-        function parseDMY(s) {
-            const p = s.split('-');
-            return new Date(p[2], p[1] - 1, p[0]);
-        }
-        if (parseDMY(tuNgay) > parseDMY(denNgay)) {
-            alert("Từ ngày phải bé hơn đến ngày");
-            return;
-        }
+    function parseDMY(s) {
+        const p = s.split('-');
+        return new Date(p[2], p[1] - 1, p[0]);
+    }
+
+    if (!isPagination && parseDMY(tuNgay) > parseDMY(denNgay)) {
+        tuNgay = denNgay;
+        $('#ngayTuNgay').val(tuNgay);
     }
 
     $('#loadingSpinner').show();
@@ -468,3 +518,4 @@ $(document).on('click', '#btnFilter', function (e) {
     isInitialLoad = true;
     filterData();
 });
+
