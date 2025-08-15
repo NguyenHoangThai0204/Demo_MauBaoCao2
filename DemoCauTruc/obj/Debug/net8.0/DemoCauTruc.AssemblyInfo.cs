@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DemoCauTruc")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+52d1888d66d32450fbe1b29ae57bc90480f3d53a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7cf5a3e11bd28cc0573e0e3ede63662435764b8c")]
 [assembly: System.Reflection.AssemblyProductAttribute("DemoCauTruc")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DemoCauTruc")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
