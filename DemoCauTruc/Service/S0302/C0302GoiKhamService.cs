@@ -76,49 +76,6 @@ namespace DemoCauTruc.Services.C0302
             return (true, message, pagedData, doanhNghiep, totalRecords, totalPages, page);
         }
 
-        //public async Task<byte[]> ExportBaoCaoGoiKhamPdfAsync(C0302GoiKhamController.ExportRequest request, ISession session)
-        //{
-        //    M0302ThongTinDoanhNghiep doanhNghiepObj = null;
-
-        //    try
-        //    {
-        //        if (request.DoanhNghiep != null)
-        //        {
-        //            var json = JsonConvert.SerializeObject(request.DoanhNghiep);
-        //            doanhNghiepObj = JsonConvert.DeserializeObject<M0302ThongTinDoanhNghiep>(json);
-        //        }
-
-        //        if (doanhNghiepObj == null)
-        //        {
-        //            var doanhNghiepJson = session.GetString("DoanhNghiepInfo");
-        //            if (!string.IsNullOrEmpty(doanhNghiepJson))
-        //            {
-        //                doanhNghiepObj = JsonConvert.DeserializeObject<M0302ThongTinDoanhNghiep>(doanhNghiepJson);
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        _logger.LogError(ex, "Lỗi parse doanh nghiep từ request hoặc session");
-        //    }
-
-        //    if (doanhNghiepObj == null)
-        //    {
-        //        doanhNghiepObj = new M0302ThongTinDoanhNghiep
-        //        {
-        //            TenCSKCB = "Tên đơn vị",
-        //            DiaChi = "",
-        //            DienThoai = ""
-        //        };
-        //    }
-
-        //    var data = request.Data ?? new List<M0302GoiKhamSTO>();
-        //    var document = new P0302BaoCaoGoiKhamPDF(data, request.FromDate, request.ToDate, doanhNghiepObj);
-
-        //    using var stream = new MemoryStream();
-        //    document.GeneratePdf(stream);
-        //    return stream.ToArray();
-        //}
         private M0302ThongTinDoanhNghiep GetDoanhNghiepFromRequestOrSession(ExportRequest request, ISession session)
         {
             M0302ThongTinDoanhNghiep doanhNghiepObj = null;

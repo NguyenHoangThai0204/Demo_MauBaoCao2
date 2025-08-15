@@ -1,28 +1,36 @@
-﻿@model List<M0302GoiKhamSTO>
+﻿@{
+
+	ViewData["NonSixOs"] = true;
+
+}
+
+@model List<M0302GoiKhamSTO>
 @using DemoCauTruc.Models.M0302;
 
 <link rel="stylesheet" href="./dist/css/CSS0302/CSS0302Styles.css">
 
+
+
 <div class="card p-1">
 	<div class="container_goiKham">
 		<div class="container_goiKham left">
-				<div class="row" style="padding:0;">
-					<div style="width: 100%; padding:0;">
-						<label class="form-label">Giai đoạn</label>
+			<div class="row" style="padding:0;">
+				<div style="width: 100%; padding:0;">
+					<label class="form-label">Giai đoạn</label>
 					<select id="selectGiaiDoan" class="form-select">
 						<option value="Nam">Năm</option>
 						<option value="Quy">Quý</option>
 						<option value="Thang">Tháng</option>
 						<option value="Ngay" selected>Ngày</option> <!-- Thêm selected vào đây -->
 					</select>
-					</div>
 				</div>
+			</div>
 
-				<!-- Container chứa Năm và Quý (dùng width 48%) -->
-				<div id="selectContainer"
-					 style="margin: 5px auto; display: flex; padding:0;justify-content: flex-start; align-items: flex-start; ">
-					<!-- Năm và Quý sẽ được thêm vào đây -->
-				</div>
+			<!-- Container chứa Năm và Quý (dùng width 48%) -->
+			<div id="selectContainer"
+				 style="margin: 5px auto; display: flex; padding:0;justify-content: flex-start; align-items: flex-start; ">
+				<!-- Năm và Quý sẽ được thêm vào đây -->
+			</div>
 
 
 			<div class="row" style="padding:0;">
@@ -69,151 +77,16 @@
 				</label>
 			</div>
 			<div class="row export-buttons">
-					<button id="btnExportPDFGoiKham" class="btn btn-outline-danger mb-3" @(ViewBag.quyenVaiTro.Xuat ? "" : "disabled")>
+				<button id="btnExportPDFGoiKham" class="btn btn-outline-danger mb-3" @(ViewBag.quyenVaiTro.Xuat ? "" : "disabled")>
 					<i class="bi bi-file-earmark-pdf"></i> Xuất PDF
 				</button>
-					<button id="btnExportExcelGoiKham" class="btn btn-outline-success mb-3" @(ViewBag.quyenVaiTro.Xuat ? "" : "disabled")>
+				<button id="btnExportExcelGoiKham" class="btn btn-outline-success mb-3" @(ViewBag.quyenVaiTro.Xuat ? "" : "disabled")>
 					<i class="bi bi-file-earmark-excel"></i> Xuất Excel
 				</button>
 			</div>
 
 		</div>
 		<div class="container_goiKham right">
-			<!-- Thêm spinner -->
-			<div id="loadingSpinner" class="text-center" style="display: none; margin: 20px 0;">
-				<div class="spinner-border text-primary" role="status">
-					<span class="visually-hidden">Loading...</span>
-				</div>
-				<p>Đang tải dữ liệu...</p>
-			</div>
-
-
-			<div class="table-wrapper">
-				<table style="width:98%; margin: auto; table-layout: fixed;" cellpadding="8">
-					<thead>
-						<tr>
-							<th style="width: 3%">STT</th>
-							<th style="width: 7%">Mã y tế</th>
-							<th style="width: 12%">Họ và tên</th>
-							<th style="width: 14%">Gói khám</th>
-							<th style="width: 8%">Ngày đăng ký</th>
-							<th style="width: 10%">Trạng thái thực hiện</th>
-							<th style="width: 10%">Chỉ định còn lại</th>
-							<th style="width: 10%">Ghi chú</th>
-						</tr>
-					</thead>
-					<tbody>
-					</tbody>
-
-				</table>
-
-			</div>
-			<div class="phan_trang">
-					<div class="d-flex">
-					<label class="form-label" style="font-size:1rem !important;">Số bản ghi mỗi trang:</label>
-					<select id="pageSizeSelect" style="font-size:1rem !important;" class="form-select">
-						<option value="10">10</option>
-						<option value="20">20</option>
-						<option value="50">50</option>
-						<option value="100">100</option>
-					</select>
-				</div>
-				<div style="display:flex; align-items:center; ">
-					<nav aria-label="Page navigation">
-						<ul class="pagination justify-content-center" id="pagination">
-						</ul>
-					</nav>
-					<div class="text-center" style="margin-left: 2px">
-						<span id="pageInfo"></span>
-					</div>
-				</div>
-			</div>
-
-		</div>
-	</div>
-</div>
-@* <div class="card p-1">
-
-	<div class="d-flex justify-content-between">
-		<div class="flex-grow-1 me-3" style="width: 14%;">
-			<div class="row g-0 mb-2">
-				<div class="col-12">
-					<label class="form-label">Giai đoạn</label>
-					<select id="selectGiaiDoan" class="form-select">
-						<option value="Ngay">Ngày</option>
-						<option value="Nam">Năm</option>
-						<option value="Quy">Quý</option>
-						<option value="Thang">Tháng</option>
-					</select>
-				</div>
-			</div>
-
-			<!-- Container chứa Năm và Quý (dùng width 48%) -->
-			<div id="selectContainer"
-				 class="d-flex my-2 g-2">
-				<!-- Năm và Quý sẽ được thêm vào đây -->
-			</div>
-
-
-			<div class="row g-0 mb-2">
-				<div class="col-12 mb-2">
-					<label class="form-label">Từ ngày</label>
-					<div class="input-group">
-						<input type="text"
-							   class="form-control date-input"
-							   id="ngayTuNgay"
-							   name="TuNgay"
-							   value="@DateTime.Now.ToString("dd-MM-yyyy")"
-							   placeholder="dd-mm-yyyy"
-							   autocomplete="off" />
-						<span class="input-group-text cursor-pointer datepicker-trigger">
-							<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6c757d">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-							</svg>
-						</span>
-					</div>
-					<span class="text-danger"></span>
-				</div>
-				<div class="col-12 mb-3">
-					<label class="form-label">Đến ngày</label>
-					<div class="input-group">
-						<input type="text"
-							   class="form-control date-input"
-							   id="ngayDenNgay"
-							   name="DenNgay"
-							   value="@DateTime.Now.ToString("dd-MM-yyyy")"
-							   placeholder="dd-mm-yyyy"
-							   autocomplete="off" />
-						<span class="input-group-text cursor-pointer datepicker-trigger">
-							<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6c757d">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-							</svg>
-						</span>
-					</div>
-					<span class="text-danger"></span>
-				</div>
-				<div class="col-12 mb-3">
-					<button id="btnFilter" class="btn btn-outline-primary w-100">
-						<i class="bi bi-funnel"></i> Lọc danh sách
-					</button>
-				</div>
-			</div>
-			<div class="row g-2 export-buttons">
-				<div class="col">
-					<button id="btnExportPDFGoiKham" class="btn btn-outline-danger w-100" @(ViewBag.quyenVaiTro.Xuat ? "" : "disabled")>
-						<i class="bi bi-file-earmark-pdf"></i> Xuất PDF
-					</button>
-				</div>
-				<div class="col">
-					<button id="btnExportExcelGoiKham" class="btn btn-outline-success w-100" @(ViewBag.quyenVaiTro.Xuat ? "" : "disabled")>
-						<i class="bi bi-file-earmark-excel"></i> Xuất Excel
-					</button>
-				</div>
-
-			</div>
-
-		</div>
-		<div class="flex-grow-1" style="width: 83%;">
 			<!-- Thêm spinner -->
 			<div id="loadingSpinner" class="text-center" style="display: none; margin: 20px 0;">
 				<div class="spinner-border text-primary" role="status">
@@ -266,10 +139,11 @@
 
 		</div>
 	</div>
-</div> *@
+</div>
+
 @section Scripts {
-	<script src="/dist/js/BienChung.js"></script>
-	<script src="/dist/js/J0302/J0302GoiKham.js"></script>
+
+	<script src="/dist/js/J0302/J0302GoiKham.js" asp-append-version="true" defer></script>
 	<script>
 		$(document).ready(function() {
 			$('.date-input').datepicker({
@@ -362,459 +236,122 @@
 					}
 				}
 
-				// function renderList(filter = '') {
-				// 	$dropdown.empty();
-				// 	currentHighlightIndex = -1;
-				// 	const selectedVal = parseInt($input.val(), 10);
-				// 	const fallbackVal = defaultValue;
-				// 	const selectedOrFallback = Number.isFinite(selectedVal) ? selectedVal : fallbackVal;
+			function renderList(filter = '') {
+				$dropdown.empty();
+				currentHighlightIndex = -1;
 
-				// 	const filteredValues = values.filter(v => !filter || v.toString().includes(filter));
+				const selectedVal = parseInt($input.val(), 10);
+				const fallbackVal = defaultValue;
+				const selectedOrFallback = Number.isFinite(selectedVal) ? selectedVal : fallbackVal;
 
-				// 	if (filteredValues.length === 0) {
-				// 		$dropdown.append(`<div class="dropdown-item" style="padding:8px 16px; color:#999;"></div>`);
-				// 		return;
-				// 	}
+				let filteredValues = values.filter(v => !filter || v.toString().includes(filter));
 
-				// 	filteredValues.forEach((val, index) => {
-				// 		const isSelected = val === selectedOrFallback;
-				// 		const item = $(`<a href="#" class="dropdown-item ${isSelected ? 'active bg-primary text-white' : ''}"
-				// 						data-val="${val}" data-index="${index}"
-				// 						style="padding:8px 16px; display:block; text-decoration:none; color:#333; cursor:pointer;">
-				// 						${val}</a>`);
-				// 		item.on('click', function (e) {
-				// 			e.preventDefault();
-				// 			selectItem(val);
-				// 		});
-				// 		item.on('mouseenter', function () {
-				// 			currentHighlightIndex = index;
-				// 			highlightCurrentItem();
-				// 		});
-				// 		$dropdown.append(item);
-				// 		if (isSelected) {
-				// 			currentHighlightIndex = index;
-				// 		}
-				// 	});
-
-				// 	const items = $dropdown.find('.dropdown-item');
-				// 	if (currentHighlightIndex === -1 && items.length) {
-				// 		currentHighlightIndex = 0;
-				// 	}
-				// 	highlightCurrentItem();
-				// }
-						function renderList(filter = '') {
-			$dropdown.empty();
-			currentHighlightIndex = -1;
-
-			const selectedVal = parseInt($input.val(), 10);
-			const fallbackVal = defaultValue;
-			const selectedOrFallback = Number.isFinite(selectedVal) ? selectedVal : fallbackVal;
-
-			let filteredValues = values.filter(v => !filter || v.toString().includes(filter));
-
-			if (!filteredValues.includes(selectedOrFallback)) {
-				filteredValues.unshift(selectedOrFallback);
-			}
-
-			if (filteredValues.length === 0) {
-				$dropdown.append(`<div class="dropdown-item" style="padding:8px 16px; color:#999;"></div>`);
-				return;
-			}
-
-			filteredValues.forEach((val, index) => {
-				const isSelected = val === selectedOrFallback;
-				const item = $(`<a href="#" class="dropdown-item ${isSelected ? 'active bg-primary text-white' : ''}"
-								data-val="${val}" data-index="${index}"
-								style="padding:8px 16px; display:block; text-decoration:none; color:#333; cursor:pointer;">
-								${val}</a>`);
-				item.on('click', function (e) {
-					e.preventDefault();
-					selectItem(val);
-				});
-				item.on('mouseenter', function () {
-					currentHighlightIndex = index;
-					highlightCurrentItem();
-				});
-				$dropdown.append(item);
-				if (isSelected) {
-					currentHighlightIndex = index;
-				}
-			});
-
-			const items = $dropdown.find('.dropdown-item');
-			if (currentHighlightIndex === -1 && items.length) {
-				currentHighlightIndex = 0;
-			}
-			highlightCurrentItem();
-		}
-
-				function selectItem(val) {
-					$input.val(val);
-					$dropdown.hide();
-					if (onSelect) onSelect(val);
+				if (!filteredValues.includes(selectedOrFallback)) {
+					filteredValues.unshift(selectedOrFallback);
 				}
 
-				$input.on('focus click', function () {
-					renderList();
-					$dropdown.show();
-				});
+				if (filteredValues.length === 0) {
+					$dropdown.append(`<div class="dropdown-item" style="padding:8px 16px; color:#999;"></div>`);
+					return;
+				}
 
-				$input.on('input', function () {
-					renderList($(this).val());
-					$dropdown.show();
-				});
-
-				$input.on('keydown', function (e) {
-					const items = $dropdown.find('.dropdown-item');
-					if (!items.length) return;
-
-					const key = e.key;
-					const isUp = key === 'ArrowUp';
-					const isDown = key === 'ArrowDown';
-					const isEnter = key === 'Enter';
-					const isEscape = key === 'Escape';
-					const isTab = key === 'Tab';
-
-					if (isUp || isDown || isEnter || isEscape || isTab) {
+				filteredValues.forEach((val, index) => {
+					const isSelected = val === selectedOrFallback;
+					const item = $(`<a href="#" class="dropdown-item ${isSelected ? 'active bg-primary text-white' : ''}"
+									data-val="${val}" data-index="${index}"
+									style="padding:8px 16px; display:block; text-decoration:none; color:#333; cursor:pointer;">
+									${val}</a>`);
+					item.on('click', function (e) {
 						e.preventDefault();
-					}
-
-					if (isUp) {
-						currentHighlightIndex = (currentHighlightIndex <= 0) ? items.length - 1 : currentHighlightIndex - 1;
-						highlightCurrentItem();
-						return;
-					}
-
-					if (isDown) {
-						currentHighlightIndex = (currentHighlightIndex >= items.length - 1) ? 0 : currentHighlightIndex + 1;
-						highlightCurrentItem();
-						return;
-					}
-
-					if (isEnter && currentHighlightIndex >= 0) {
-						const val = parseInt(items.eq(currentHighlightIndex).data('val'), 10);
 						selectItem(val);
-						return;
-					}
-
-					if (isEscape) {
-						$dropdown.hide();
-						return;
-					}
-
-					if (isTab) {
-						if (currentHighlightIndex >= 0) {
-							const val = parseInt(items.eq(currentHighlightIndex).data('val'), 10);
-							selectItem(val);
-						}
-						return;
-					}
-				});
-
-				$(document).on('click', function (e) {
-					if (!$(e.target).closest('[data-dropdown-wrapper]').length) {
-						$dropdown.hide();
-					}
-				});
-			}
-
-			function formatDate(date) {
-				const day = String(date.getDate()).padStart(2, '0');
-				const month = String(date.getMonth() + 1).padStart(2, '0');
-				const year = date.getFullYear();
-				return `${day}-${month}-${year}`;
-			}
-
-			function getMonthDateRange(year, month) {
-				const startDate = new Date(year, month - 1, 1);
-				const endDate = new Date(year, month, 0);
-				return { start: startDate, end: endDate };
-			}
-
-		function updateDates() {
-			const year = parseInt($('#yearInput').val(), 10) || currentYear;
-
-			if (selectedValue === 'Nam') {
-				$('#ngayTuNgay').val(`01-01-${year}`);
-				$('#ngayDenNgay').val(`31-12-${year}`);
-			}
-			else if (selectedValue === 'Quy') {
-				let quy = parseInt($('#quyInput').val(), 10) || 1;
-				if (quy > 4) quy = 4;
-				if (quy < 1) quy = 1;
-
-				const startMonth = (quy - 1) * 3 + 1;
-				const endMonth = startMonth + 2;
-				$('#ngayTuNgay').val(formatDate(new Date(year, startMonth - 1, 1)));
-				$('#ngayDenNgay').val(formatDate(new Date(year, endMonth, 0)));
-			}
-			else if (selectedValue === 'Thang') {
-				let month = parseInt($('#thangInput').val(), 10) || currentMonth;
-				if (month > 12) month = 12;
-				if (month < 1) month = 1;
-
-				const { start, end } = getMonthDateRange(year, month);
-				$('#ngayTuNgay').val(formatDate(start));
-				$('#ngayDenNgay').val(formatDate(end));
-			}
-		else if (selectedValue === 'Ngay') {
-			const today = new Date(Date.now()); // lấy timestamp hiện tại
-			const todayStr = formatDate(today);
-
-			$('#ngayTuNgay').val(todayStr);
-			$('#ngayDenNgay').val(todayStr);
-		}
-
-			// Đồng bộ lại datepicker với giá trị mới
-			$('#ngayTuNgay').datepicker('setDate', $('#ngayTuNgay').val());
-			$('#ngayDenNgay').datepicker('setDate', $('#ngayDenNgay').val());
-		}
-
-			// function updateDates() {
-			// 	const year = parseInt($('#yearInput').val(), 10) || currentYear;
-
-			// 	if (selectedValue === 'Nam') {
-			// 		$('#ngayTuNgay').val(`01-01-${year}`);
-			// 		$('#ngayDenNgay').val(`31-12-${year}`);
-			// 	}
-			// 	else if (selectedValue === 'Quy') {
-			// 		const quy = parseInt($('#quyInput').val(), 10) || 1;
-			// 		const startMonth = (quy - 1) * 3 + 1;
-			// 		const endMonth = startMonth + 2;
-			// 		$('#ngayTuNgay').val(formatDate(new Date(year, startMonth - 1, 1)));
-			// 		$('#ngayDenNgay').val(formatDate(new Date(year, endMonth, 0)));
-			// 	}
-			// 	else if (selectedValue === 'Thang') {
-			// 		const month = parseInt($('#thangInput').val(), 10) || currentMonth;
-			// 		const { start, end } = getMonthDateRange(year, month);
-			// 		$('#ngayTuNgay').val(formatDate(start));
-			// 		$('#ngayDenNgay').val(formatDate(end));
-			// 	}
-
-			// 	$('#ngayTuNgay').datepicker('setDate', $('#ngayTuNgay').val());
-			// 	$('#ngayDenNgay').datepicker('setDate', $('#ngayDenNgay').val());
-			// }
-			createDropdownInput('yearInput', 'Năm', Array.from({ length: currentYear - 1999 }, (_, i) => 2000 + i), currentYear, updateDates);
-
-			if (selectedValue === 'Quy') {
-				createDropdownInput('quyInput', 'Quý', [1, 2, 3, 4], currentQuy, updateDates);
-			} else if (selectedValue === 'Thang') {
-				createDropdownInput('thangInput', 'Tháng', Array.from({ length: 12 }, (_, i) => i + 1), currentMonth, updateDates);
-			} else if (selectedValue === 'Ngay') {
-				container.empty();
-			}
-
-				updateDates();
-			
-		});
-	</script>
-}
-@* @section Scripts {
-	<script src="/dist/js/BienChung.js"></script>
-	<script src="/dist/js/J0302/J0302GoiKham.js"></script>
-	<script>
-		$(document).ready(function() {
-			// Hàm chuyển đổi sang đối tượng Date
-			function parseDate(dateStr) {
-				const [day, month, year] = dateStr.split('-').map(Number);
-				return new Date(year, month - 1, day);
-			}
-
-			// Xử lý tự động cập nhật ngày
-			function autoAdjustDates() {
-				const tuNgayStr = $('#ngayTuNgay').val();
-				const denNgayStr = $('#ngayDenNgay').val();
-
-				if (tuNgayStr && denNgayStr) {
-					try {
-						const tuNgay = parseDate(tuNgayStr);
-						const denNgay = parseDate(denNgayStr);
-
-						if (tuNgay > denNgay) {
-							$('#ngayTuNgay').val(denNgayStr);
-							// Có thể thêm hiệu ứng visual để người dùng biết đã tự động điều chỉnh
-							$('#ngayTuNgay').addClass('highlight-adjust');
-							setTimeout(() => $('#ngayTuNgay').removeClass('highlight-adjust'), 1000);
-						}
-					} catch (e) {
-						console.error("Lỗi định dạng ngày", e);
-					}
-				}
-			}
-
-			// Gắn sự kiện theo dõi thay đổi tức thì
-			$('#ngayTuNgay, #ngayDenNgay').on('input change propertychange paste', function() {
-				// Dùng setTimeout để đảm bảo giá trị input đã được cập nhật
-				setTimeout(autoAdjustDates, 10);
-			});
-
-			// Nếu dùng datepicker
-			$('.datepicker-trigger').click(function() {
-				setTimeout(autoAdjustDates, 100);
-			});
-		});
-		
-		$('#selectGiaiDoan').change(function () {
-			const selectedValue = $(this).val();
-			const container = $('#selectContainer');
-			container.empty();
-
-			if (selectedValue === 'Nam' || selectedValue === 'Ngay') {
-				container.css('justify-content', 'flex-start');
-			} else if (selectedValue === 'Quy' || selectedValue === 'Thang') {
-				container.css('justify-content', 'space-around');
-			}
-
-			const currentYear = new Date().getFullYear();
-			const currentMonth = new Date().getMonth() + 1;
-			const currentQuy = Math.ceil(currentMonth / 3);
-
-			// ======= Dropdown input =======
-			function createDropdownInput(id, label, values, defaultValue, onSelect) {
-				const html = `
-					<div data-dropdown-wrapper style="width: 45%; position: relative;">
-						<label class="form-label">${label}</label>
-						<input type="text" class="form-control" id="${id}" value="${defaultValue}" autocomplete="off">
-						<div id="${id}Dropdown"
-							style="display:none; position:absolute; top:100%; left:0; width:100%;
-							max-height:200px; overflow-y:auto; z-index:9999; background:white;
-							border:1px solid rgba(0,0,0,.15); border-radius:4px;
-							box-shadow:0 6px 12px rgba(0,0,0,.175);">
-						</div>
-					</div>
-				`;
-				container.append(html);
-
-				const $input = $('#' + id);
-				const $dropdown = $('#' + id + 'Dropdown');
-				let currentHighlightIndex = -1;
-
-				function highlightCurrentItem() {
-					const items = $dropdown.find('.dropdown-item');
-					items.removeClass('active bg-primary text-white');
-					if (currentHighlightIndex >= 0 && currentHighlightIndex < items.length) {
-						items.eq(currentHighlightIndex).addClass('active bg-primary text-white');
-
-						// Tự động scroll đến item được chọn
-						const item = items.eq(currentHighlightIndex)[0];
-						if (item) {
-							item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-						}
-					}
-				}
-
-				function renderList(filter = '') {
-					$dropdown.empty();
-					currentHighlightIndex = -1;
-					const selectedVal = parseInt($input.val(), 10);
-					const fallbackVal = defaultValue;
-					const selectedOrFallback = Number.isFinite(selectedVal) ? selectedVal : fallbackVal;
-
-					const filteredValues = values.filter(v => !filter || v.toString().includes(filter));
-
-					if (filteredValues.length === 0) {
-						$dropdown.append(`<div class="dropdown-item" style="padding:8px 16px; color:#999;">Không có kết quả</div>`);
-						return;
-					}
-
-					filteredValues.forEach((val, index) => {
-						const isSelected = val === selectedOrFallback;
-						const item = $(`<a href="#" class="dropdown-item ${isSelected ? 'active bg-primary text-white' : ''}"
-										data-val="${val}" data-index="${index}"
-										style="padding:8px 16px; display:block; text-decoration:none; color:#333; cursor:pointer;">
-										${val}</a>`);
-						item.on('click', function (e) {
-							e.preventDefault();
-							selectItem(val);
-						});
-						item.on('mouseenter', function () {
-							currentHighlightIndex = index;
-							highlightCurrentItem();
-						});
-						$dropdown.append(item);
-						if (isSelected) {
-							currentHighlightIndex = index;
-						}
 					});
-
-					const items = $dropdown.find('.dropdown-item');
-					if (currentHighlightIndex === -1 && items.length) {
-						currentHighlightIndex = 0;
-					}
-					highlightCurrentItem();
-				}
-
-				function selectItem(val) {
-					$input.val(val);
-					$dropdown.hide();
-					if (onSelect) onSelect(val);
-				}
-
-				$input.on('focus click', function () {
-					renderList();
-					$dropdown.show();
-				});
-		
-				$input.on('input', function () {
-					renderList($(this).val());
-					$dropdown.show();
-				});
-
-				$input.on('keydown', function (e) {
-					const items = $dropdown.find('.dropdown-item');
-					if (!items.length) return;
-
-					const key = e.key;
-					const isUp = key === 'ArrowUp';
-					const isDown = key === 'ArrowDown';
-					const isEnter = key === 'Enter';
-					const isEscape = key === 'Escape';
-					const isTab = key === 'Tab';
-
-					if (isUp || isDown || isEnter || isEscape || isTab) {
-						e.preventDefault();
-					}
-
-					if (isUp) {
-						currentHighlightIndex = (currentHighlightIndex <= 0) ? items.length - 1 : currentHighlightIndex - 1;
+					item.on('mouseenter', function () {
+						currentHighlightIndex = index;
 						highlightCurrentItem();
-						return;
-					}
-
-					if (isDown) {
-						currentHighlightIndex = (currentHighlightIndex >= items.length - 1) ? 0 : currentHighlightIndex + 1;
-						highlightCurrentItem();
-						return;
-					}
-
-					if (isEnter && currentHighlightIndex >= 0) {
-						const val = parseInt(items.eq(currentHighlightIndex).data('val'), 10);
-						selectItem(val);
-						return;
-					}
-
-					if (isEscape) {
-						$dropdown.hide();
-						return;
-					}
-
-					if (isTab) {
-						if (currentHighlightIndex >= 0) {
-							const val = parseInt(items.eq(currentHighlightIndex).data('val'), 10);
-							selectItem(val);
-						}
-						return;
+					});
+					$dropdown.append(item);
+					if (isSelected) {
+						currentHighlightIndex = index;
 					}
 				});
 
-				$(document).on('click', function (e) {
-					if (!$(e.target).closest('[data-dropdown-wrapper]').length) {
-						$dropdown.hide();
-					}
-				});
+				const items = $dropdown.find('.dropdown-item');
+				if (currentHighlightIndex === -1 && items.length) {
+					currentHighlightIndex = 0;
+				}
+				highlightCurrentItem();
 			}
 
-			// ======= Ngày/Tháng/Quý =======
+			function selectItem(val) {
+				$input.val(val);
+				$dropdown.hide();
+				if (onSelect) onSelect(val);
+			}
+
+			$input.on('focus click', function () {
+				renderList();
+				$dropdown.show();
+			});
+
+			$input.on('input', function () {
+				renderList($(this).val());
+				$dropdown.show();
+			});
+
+			$input.on('keydown', function (e) {
+				const items = $dropdown.find('.dropdown-item');
+				if (!items.length) return;
+
+				const key = e.key;
+				const isUp = key === 'ArrowUp';
+				const isDown = key === 'ArrowDown';
+				const isEnter = key === 'Enter';
+				const isEscape = key === 'Escape';
+				const isTab = key === 'Tab';
+
+				if (isUp || isDown || isEnter || isEscape || isTab) {
+					e.preventDefault();
+				}
+
+				if (isUp) {
+					currentHighlightIndex = (currentHighlightIndex <= 0) ? items.length - 1 : currentHighlightIndex - 1;
+					highlightCurrentItem();
+					return;
+				}
+
+				if (isDown) {
+					currentHighlightIndex = (currentHighlightIndex >= items.length - 1) ? 0 : currentHighlightIndex + 1;
+					highlightCurrentItem();
+					return;
+				}
+
+				if (isEnter && currentHighlightIndex >= 0) {
+					const val = parseInt(items.eq(currentHighlightIndex).data('val'), 10);
+					selectItem(val);
+					return;
+				}
+
+				if (isEscape) {
+					$dropdown.hide();
+					return;
+				}
+
+				if (isTab) {
+					if (currentHighlightIndex >= 0) {
+						const val = parseInt(items.eq(currentHighlightIndex).data('val'), 10);
+						selectItem(val);
+					}
+					return;
+				}
+			});
+
+			$(document).on('click', function (e) {
+				if (!$(e.target).closest('[data-dropdown-wrapper]').length) {
+					$dropdown.hide();
+				}
+			});
+						}
+
 			function formatDate(date) {
 				const day = String(date.getDate()).padStart(2, '0');
 				const month = String(date.getMonth() + 1).padStart(2, '0');
@@ -836,21 +373,45 @@
 					$('#ngayDenNgay').val(`31-12-${year}`);
 				}
 				else if (selectedValue === 'Quy') {
-					const quy = parseInt($('#quyInput').val(), 10) || 1;
+					let quy = parseInt($('#quyInput').val(), 10) || 1;
+					if (quy > 4) quy = 4;
+					if (quy < 1) quy = 1;
+
 					const startMonth = (quy - 1) * 3 + 1;
 					const endMonth = startMonth + 2;
 					$('#ngayTuNgay').val(formatDate(new Date(year, startMonth - 1, 1)));
 					$('#ngayDenNgay').val(formatDate(new Date(year, endMonth, 0)));
 				}
 				else if (selectedValue === 'Thang') {
-					const month = parseInt($('#thangInput').val(), 10) || currentMonth;
+					let month = parseInt($('#thangInput').val(), 10) || currentMonth;
+					if (month > 12) month = 12;
+					if (month < 1) month = 1;
+
 					const { start, end } = getMonthDateRange(year, month);
 					$('#ngayTuNgay').val(formatDate(start));
 					$('#ngayDenNgay').val(formatDate(end));
 				}
+				else if (selectedValue === 'Ngay') {
+					const today = new Date(Date.now()); // lấy timestamp hiện tại
+					const todayStr = formatDate(today);
+
+					$('#ngayTuNgay').val(todayStr);
+					$('#ngayDenNgay').val(todayStr);
+				}
+								// 🔹 Disable hoặc enable 2 ô input ngày tùy loại
+				if (selectedValue === 'Nam' || selectedValue === 'Quy' || selectedValue === 'Thang') {
+					$('#ngayTuNgay, #ngayDenNgay').prop('disabled', true);
+				} else {
+						$('#ngayTuNgay, #ngayDenNgay').prop('disabled', false);
+				}
+
+								// Đồng bộ lại datepicker với giá trị mới
+				$('#ngayTuNgay').datepicker('setDate', $('#ngayTuNgay').val());
+				$('#ngayDenNgay').datepicker('setDate', $('#ngayDenNgay').val());
+
 			}
 
-			// ======= Tạo dropdown =======
+
 			createDropdownInput('yearInput', 'Năm', Array.from({ length: currentYear - 1999 }, (_, i) => 2000 + i), currentYear, updateDates);
 
 			if (selectedValue === 'Quy') {
@@ -861,14 +422,8 @@
 				container.empty();
 			}
 
-			if (selectedValue !== 'Ngay') {
-				updateDates();
-			}
+			updateDates();
+
 		});
 	</script>
-
-
-
-
-	
-} *@
+}

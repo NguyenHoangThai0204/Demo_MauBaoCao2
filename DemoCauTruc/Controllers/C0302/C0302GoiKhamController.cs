@@ -17,15 +17,26 @@ namespace DemoCauTruc.Controllers.C0302
     [Route("bao_cao_thuc_hien_theo_doi_goi_kham_benh")]
     public class C0302GoiKhamController : Controller
     {
+        //private string _maChucNang = "/bao_cao_thuc_hien_theo_doi_goi_kham_benh";
+        //private IMemoryCachingServices _memoryCache;
+
         private readonly IC0302GoiKhamService _service;
 
-        public C0302GoiKhamController(IC0302GoiKhamService service)
+        public C0302GoiKhamController(IC0302GoiKhamService service /*, IMemoryCachingServices memoryCache*/)
         {
             _service = service;
+            //_memoryCache = memoryCache;
         }
 
         public IActionResult Index()
         {
+            //var quyenVaiTro = await _memoryCache.getQuyenVaiTro(_maChucNang);
+            //if (quyenVaiTro == null)
+            //{
+            //    return RedirectToAction("NotFound", "Home");
+            //}
+            //ViewBag.quyenVaiTro = quyenVaiTro;
+            //ViewData["Title"] = CommonServices.toEmptyData(quyenVaiTro);
             ViewBag.quyenVaiTro = new
             {
                 Them = true,
@@ -67,6 +78,7 @@ namespace DemoCauTruc.Controllers.C0302
             public string ToDate { get; set; }
             public M0302ThongTinDoanhNghiep DoanhNghiep { get; set; }
         }
+
         [HttpPost("export/pdf")]
         public async Task<IActionResult> ExportToPDF([FromBody] ExportRequest request)
         {
