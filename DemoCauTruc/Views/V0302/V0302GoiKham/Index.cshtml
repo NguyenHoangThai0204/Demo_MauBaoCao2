@@ -557,6 +557,13 @@
 				$('#ngayTuNgay').val(formatDate(start));
 				$('#ngayDenNgay').val(formatDate(end));
 			}
+		else if (selectedValue === 'Ngay') {
+			const today = new Date(Date.now()); // lấy timestamp hiện tại
+			const todayStr = formatDate(today);
+
+			$('#ngayTuNgay').val(todayStr);
+			$('#ngayDenNgay').val(todayStr);
+		}
 
 			// Đồng bộ lại datepicker với giá trị mới
 			$('#ngayTuNgay').datepicker('setDate', $('#ngayTuNgay').val());
@@ -597,9 +604,8 @@
 				container.empty();
 			}
 
-			if (selectedValue !== 'Ngay') {
 				updateDates();
-			}
+			
 		});
 	</script>
 }
