@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DemoCauTruc")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+84efb59419ed72d01ce39412f5f7d82f37ada401")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+029b5c01b2e11cda1254e2f92f386c5dc3897d2b")]
 [assembly: System.Reflection.AssemblyProductAttribute("DemoCauTruc")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DemoCauTruc")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

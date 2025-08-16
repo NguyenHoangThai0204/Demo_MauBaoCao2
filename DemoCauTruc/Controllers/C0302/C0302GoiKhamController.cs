@@ -27,8 +27,7 @@ namespace DemoCauTruc.Controllers.C0302
             _service = service;
             //_memoryCache = memoryCache;
         }
-
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             //var quyenVaiTro = await _memoryCache.getQuyenVaiTro(_maChucNang);
             //if (quyenVaiTro == null)
