@@ -8,7 +8,7 @@
 @using DemoCauTruc.Models.M0302;
 
 <link rel="stylesheet" href="./dist/css/CSS0302/CSS0302Styles.css">
-
+<link rel="stylesheet" href="~/dist/lib/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
 
 
 <div class="card p-1">
@@ -142,7 +142,9 @@
 </div>
 
 @section Scripts {
-
+	<!-- Bootstrap Datepicker JS -->
+	<script src="~/dist/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js" asp-append-version="true" defer></script>
+	<script src="~/dist/lib/bootstrap-datepicker/dist/locales/bootstrap-datepicker.vi.min.js" asp-append-version="true" defer></script>
 	<script src="/dist/js/J0302/J0302GoiKham.js" asp-append-version="true" defer></script>
 
 }

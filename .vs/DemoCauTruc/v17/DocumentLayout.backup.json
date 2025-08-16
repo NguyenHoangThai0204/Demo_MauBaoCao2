@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "D:\\Sixos\\Demo_MauBaoCao2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{20822F83-8DA8-48A0-967E-A30F76A5FF97}|DemoCauTruc\\DemoCauTruc.csproj|d:\\sixos\\demo_maubaocao2\\democautruc\\wwwroot\\dist\\js\\bienchung.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{20822F83-8DA8-48A0-967E-A30F76A5FF97}|DemoCauTruc\\DemoCauTruc.csproj|solutionrelative:democautruc\\wwwroot\\dist\\js\\bienchung.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{20822F83-8DA8-48A0-967E-A30F76A5FF97}|DemoCauTruc\\DemoCauTruc.csproj|d:\\sixos\\demo_maubaocao2\\democautruc\\views\\v0302\\v0302goikham\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{20822F83-8DA8-48A0-967E-A30F76A5FF97}|DemoCauTruc\\DemoCauTruc.csproj|solutionrelative:democautruc\\views\\v0302\\v0302goikham\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{20822F83-8DA8-48A0-967E-A30F76A5FF97}|DemoCauTruc\\DemoCauTruc.csproj|d:\\sixos\\demo_maubaocao2\\democautruc\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{20822F83-8DA8-48A0-967E-A30F76A5FF97}|DemoCauTruc\\DemoCauTruc.csproj|solutionrelative:democautruc\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20822F83-8DA8-48A0-967E-A30F76A5FF97}|DemoCauTruc\\DemoCauTruc.csproj|d:\\sixos\\demo_maubaocao2\\democautruc\\wwwroot\\dist\\js\\j0302\\j0302goikham.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{20822F83-8DA8-48A0-967E-A30F76A5FF97}|DemoCauTruc\\DemoCauTruc.csproj|solutionrelative:democautruc\\wwwroot\\dist\\js\\j0302\\j0302goikham.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20822F83-8DA8-48A0-967E-A30F76A5FF97}|DemoCauTruc\\DemoCauTruc.csproj|d:\\sixos\\demo_maubaocao2\\democautruc\\controllers\\c0302\\c0302goikhamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20822F83-8DA8-48A0-967E-A30F76A5FF97}|DemoCauTruc\\DemoCauTruc.csproj|solutionrelative:democautruc\\controllers\\c0302\\c0302goikhamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{20822F83-8DA8-48A0-967E-A30F76A5FF97}|DemoCauTruc\\DemoCauTruc.csproj|d:\\sixos\\demo_maubaocao2\\democautruc\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -27,16 +35,12 @@
       "RelativeMoniker": "D:0:0:{20822F83-8DA8-48A0-967E-A30F76A5FF97}|DemoCauTruc\\DemoCauTruc.csproj|solutionrelative:democautruc\\service\\s0302\\si0302\\ic0302goikhamservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{20822F83-8DA8-48A0-967E-A30F76A5FF97}|DemoCauTruc\\DemoCauTruc.csproj|d:\\sixos\\demo_maubaocao2\\democautruc\\wwwroot\\dist\\js\\bienchung.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{20822F83-8DA8-48A0-967E-A30F76A5FF97}|DemoCauTruc\\DemoCauTruc.csproj|solutionrelative:democautruc\\wwwroot\\dist\\js\\bienchung.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{20822F83-8DA8-48A0-967E-A30F76A5FF97}|DemoCauTruc\\DemoCauTruc.csproj|d:\\sixos\\demo_maubaocao2\\democautruc\\wwwroot\\dist\\css\\css0302\\css0302styles.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{20822F83-8DA8-48A0-967E-A30F76A5FF97}|DemoCauTruc\\DemoCauTruc.csproj|solutionrelative:democautruc\\wwwroot\\dist\\css\\css0302\\css0302styles.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{20822F83-8DA8-48A0-967E-A30F76A5FF97}|DemoCauTruc\\DemoCauTruc.csproj|d:\\sixos\\demo_maubaocao2\\democautruc\\wwwroot\\dist\\js\\j0302\\j0302goikham.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{20822F83-8DA8-48A0-967E-A30F76A5FF97}|DemoCauTruc\\DemoCauTruc.csproj|solutionrelative:democautruc\\wwwroot\\dist\\js\\j0302\\j0302goikham.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{20822F83-8DA8-48A0-967E-A30F76A5FF97}|DemoCauTruc\\DemoCauTruc.csproj|d:\\sixos\\demo_maubaocao2\\democautruc\\views\\v0302\\v0302goikham\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{20822F83-8DA8-48A0-967E-A30F76A5FF97}|DemoCauTruc\\DemoCauTruc.csproj|solutionrelative:democautruc\\views\\v0302\\v0302goikham\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,8 +50,46 @@
       "DocumentGroups": [
         {
           "DockedHeight": 22,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "C0302GoiKhamController.cs",
+              "DocumentMoniker": "D:\\Sixos\\Demo_MauBaoCao2\\DemoCauTruc\\Controllers\\C0302\\C0302GoiKhamController.cs",
+              "RelativeDocumentMoniker": "DemoCauTruc\\Controllers\\C0302\\C0302GoiKhamController.cs",
+              "ToolTip": "D:\\Sixos\\Demo_MauBaoCao2\\DemoCauTruc\\Controllers\\C0302\\C0302GoiKhamController.cs",
+              "RelativeToolTip": "DemoCauTruc\\Controllers\\C0302\\C0302GoiKhamController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-16T02:52:31.348Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "_ValidationScriptsPartial.cshtml",
+              "DocumentMoniker": "D:\\Sixos\\Demo_MauBaoCao2\\DemoCauTruc\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeDocumentMoniker": "DemoCauTruc\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ToolTip": "D:\\Sixos\\Demo_MauBaoCao2\\DemoCauTruc\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeToolTip": "DemoCauTruc\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-16T02:49:44.393Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "J0302GoiKham.js",
+              "DocumentMoniker": "D:\\Sixos\\Demo_MauBaoCao2\\DemoCauTruc\\wwwroot\\dist\\js\\J0302\\J0302GoiKham.js",
+              "RelativeDocumentMoniker": "DemoCauTruc\\wwwroot\\dist\\js\\J0302\\J0302GoiKham.js",
+              "ToolTip": "D:\\Sixos\\Demo_MauBaoCao2\\DemoCauTruc\\wwwroot\\dist\\js\\J0302\\J0302GoiKham.js",
+              "RelativeToolTip": "DemoCauTruc\\wwwroot\\dist\\js\\J0302\\J0302GoiKham.js",
+              "ViewState": "AgIAALcBAAAAAAAAAAAAALoBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-08-16T02:48:02.388Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -56,66 +98,51 @@
               "RelativeDocumentMoniker": "DemoCauTruc\\Views\\Shared\\_Layout.cshtml",
               "ToolTip": "D:\\Sixos\\Demo_MauBaoCao2\\DemoCauTruc\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "DemoCauTruc\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAC0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-08-16T02:49:45.793Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "_ValidationScriptsPartial.cshtml",
-              "DocumentMoniker": "D:\\Sixos\\Demo_MauBaoCao2\\DemoCauTruc\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-              "RelativeDocumentMoniker": "DemoCauTruc\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-              "ToolTip": "D:\\Sixos\\Demo_MauBaoCao2\\DemoCauTruc\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-              "RelativeToolTip": "DemoCauTruc\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-16T02:49:44.393Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "P0302BaoCaoGoiKhamPDF.cs",
-              "DocumentMoniker": "D:\\Sixos\\Demo_MauBaoCao2\\DemoCauTruc\\PDFDocuments\\P0302\\P0302BaoCaoGoiKhamPDF.cs",
-              "RelativeDocumentMoniker": "DemoCauTruc\\PDFDocuments\\P0302\\P0302BaoCaoGoiKhamPDF.cs",
-              "ToolTip": "D:\\Sixos\\Demo_MauBaoCao2\\DemoCauTruc\\PDFDocuments\\P0302\\P0302BaoCaoGoiKhamPDF.cs",
-              "RelativeToolTip": "DemoCauTruc\\PDFDocuments\\P0302\\P0302BaoCaoGoiKhamPDF.cs",
-              "ViewState": "AgIAAOwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-16T02:49:39.548Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "BienChung.js",
-              "DocumentMoniker": "D:\\Sixos\\Demo_MauBaoCao2\\DemoCauTruc\\wwwroot\\dist\\js\\BienChung.js",
-              "RelativeDocumentMoniker": "DemoCauTruc\\wwwroot\\dist\\js\\BienChung.js",
-              "ToolTip": "D:\\Sixos\\Demo_MauBaoCao2\\DemoCauTruc\\wwwroot\\dist\\js\\BienChung.js",
-              "RelativeToolTip": "DemoCauTruc\\wwwroot\\dist\\js\\BienChung.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-08-16T02:49:23.457Z",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Sixos\\Demo_MauBaoCao2\\DemoCauTruc\\Views\\V0302\\V0302GoiKham\\Index.cshtml",
+              "RelativeDocumentMoniker": "DemoCauTruc\\Views\\V0302\\V0302GoiKham\\Index.cshtml",
+              "ToolTip": "D:\\Sixos\\Demo_MauBaoCao2\\DemoCauTruc\\Views\\V0302\\V0302GoiKham\\Index.cshtml",
+              "RelativeToolTip": "DemoCauTruc\\Views\\V0302\\V0302GoiKham\\Index.cshtml",
+              "ViewState": "AgIAAHUAAAAAAAAAAAAewJUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-16T02:46:38.449Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "S0302GoiKhamService.cs",
               "DocumentMoniker": "D:\\Sixos\\Demo_MauBaoCao2\\DemoCauTruc\\Service\\S0302\\S0302GoiKhamService.cs",
               "RelativeDocumentMoniker": "DemoCauTruc\\Service\\S0302\\S0302GoiKhamService.cs",
               "ToolTip": "D:\\Sixos\\Demo_MauBaoCao2\\DemoCauTruc\\Service\\S0302\\S0302GoiKhamService.cs",
               "RelativeToolTip": "DemoCauTruc\\Service\\S0302\\S0302GoiKhamService.cs",
-              "ViewState": "AgIAAAYBAAAAAAAAAAAAABEAAABDAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-16T02:49:34.511Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-16T02:49:34.511Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "P0302BaoCaoGoiKhamPDF.cs",
+              "DocumentMoniker": "D:\\Sixos\\Demo_MauBaoCao2\\DemoCauTruc\\PDFDocuments\\P0302\\P0302BaoCaoGoiKhamPDF.cs",
+              "RelativeDocumentMoniker": "DemoCauTruc\\PDFDocuments\\P0302\\P0302BaoCaoGoiKhamPDF.cs",
+              "ToolTip": "D:\\Sixos\\Demo_MauBaoCao2\\DemoCauTruc\\PDFDocuments\\P0302\\P0302BaoCaoGoiKhamPDF.cs",
+              "RelativeToolTip": "DemoCauTruc\\PDFDocuments\\P0302\\P0302BaoCaoGoiKhamPDF.cs",
+              "ViewState": "AgIAANwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-16T02:49:39.548Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "IC0302GoiKhamService.cs",
               "DocumentMoniker": "D:\\Sixos\\Demo_MauBaoCao2\\DemoCauTruc\\Service\\S0302\\SI0302\\IC0302GoiKhamService.cs",
               "RelativeDocumentMoniker": "DemoCauTruc\\Service\\S0302\\SI0302\\IC0302GoiKhamService.cs",
@@ -123,12 +150,23 @@
               "RelativeToolTip": "DemoCauTruc\\Service\\S0302\\SI0302\\IC0302GoiKhamService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-16T02:49:31.446Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-16T02:49:31.446Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
+              "Title": "BienChung.js",
+              "DocumentMoniker": "D:\\Sixos\\Demo_MauBaoCao2\\DemoCauTruc\\wwwroot\\dist\\js\\BienChung.js",
+              "RelativeDocumentMoniker": "DemoCauTruc\\wwwroot\\dist\\js\\BienChung.js",
+              "ToolTip": "D:\\Sixos\\Demo_MauBaoCao2\\DemoCauTruc\\wwwroot\\dist\\js\\BienChung.js",
+              "RelativeToolTip": "DemoCauTruc\\wwwroot\\dist\\js\\BienChung.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-08-16T02:49:23.457Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "CSS0302Styles.css",
               "DocumentMoniker": "D:\\Sixos\\Demo_MauBaoCao2\\DemoCauTruc\\wwwroot\\dist\\css\\CSS0302\\CSS0302Styles.css",
               "RelativeDocumentMoniker": "DemoCauTruc\\wwwroot\\dist\\css\\CSS0302\\CSS0302Styles.css",
@@ -136,34 +174,7 @@
               "RelativeToolTip": "DemoCauTruc\\wwwroot\\dist\\css\\CSS0302\\CSS0302Styles.css",
               "ViewState": "AgIAAPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-08-16T02:49:26.716Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "J0302GoiKham.js",
-              "DocumentMoniker": "D:\\Sixos\\Demo_MauBaoCao2\\DemoCauTruc\\wwwroot\\dist\\js\\J0302\\J0302GoiKham.js",
-              "RelativeDocumentMoniker": "DemoCauTruc\\wwwroot\\dist\\js\\J0302\\J0302GoiKham.js",
-              "ToolTip": "D:\\Sixos\\Demo_MauBaoCao2\\DemoCauTruc\\wwwroot\\dist\\js\\J0302\\J0302GoiKham.js",
-              "RelativeToolTip": "DemoCauTruc\\wwwroot\\dist\\js\\J0302\\J0302GoiKham.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAOwBAABaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-08-16T02:48:02.388Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\Sixos\\Demo_MauBaoCao2\\DemoCauTruc\\Views\\V0302\\V0302GoiKham\\Index.cshtml",
-              "RelativeDocumentMoniker": "DemoCauTruc\\Views\\V0302\\V0302GoiKham\\Index.cshtml",
-              "ToolTip": "D:\\Sixos\\Demo_MauBaoCao2\\DemoCauTruc\\Views\\V0302\\V0302GoiKham\\Index.cshtml",
-              "RelativeToolTip": "DemoCauTruc\\Views\\V0302\\V0302GoiKham\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJEAAABXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-16T02:46:38.449Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-16T02:49:26.716Z"
             }
           ]
         },
