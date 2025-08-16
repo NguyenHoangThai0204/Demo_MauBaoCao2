@@ -505,6 +505,7 @@ $(document).ready(function () {
     });
 });
 
+
 $('#selectGiaiDoan').change(function () {
     const selectedValue = $(this).val();
     const container = $('#selectContainer');
@@ -521,11 +522,11 @@ $('#selectGiaiDoan').change(function () {
     const currentQuy = Math.ceil(currentMonth / 3);
 
     // ================== FUNCTION TẠO DROPDOWN ==================
-    function createDropdownInput(id, label, values, defaultValue, onSelect) {
+    function createDropdownInput(id, label, values, defaultValue, onSelect, length = 10) {
         const html = `
             <div data-dropdown-wrapper style="width: 45%; position: relative;">
                 <label class="form-label">${label}</label>
-                <input type="number" class="form-control" id="${id}" value="${defaultValue}" autocomplete="off">
+                <input type="number" class="form-control" id="${id}" value="${defaultValue}" oninput="if(this.value.length > ${length}) this.value = this.value.slice(0, ${length});"  autocomplete="off">
                 <div id="${id}Dropdown"
                     style="display:none; position:absolute; top:100%; left:0; width:100%;
                     max-height:200px; overflow-y:auto; z-index:9999; background:white;
@@ -559,7 +560,6 @@ $('#selectGiaiDoan').change(function () {
 
             let filteredValues = values.filter(v => !filter || v.toString().includes(filter));
             if (filteredValues.length === 0 && id === 'yearInput') {
-                // Cho phép hiển thị năm nhập vào dù không có trong danh sách
                 if (Number.isFinite(typedVal)) {
                     filteredValues = [typedVal];
                 } else {
@@ -679,7 +679,6 @@ $('#selectGiaiDoan').change(function () {
         return { start: startDate, end: endDate };
     }
 
-    // Hàm highlight năm trong dropdown
     function highlightYearInDropdown(year) {
         $('#yearInputDropdown').find('.dropdown-item').removeClass('active bg-primary text-white');
         const yearItem = $('#yearInputDropdown').find(`[data-val="${year}"]`);
@@ -745,20 +744,31 @@ $('#selectGiaiDoan').change(function () {
         $('#ngayDenNgay').datepicker('setDate', $('#ngayDenNgay').val());
     }
 
-    // Tạo dropdown năm với phạm vi rộng hơn (từ 1900 đến 2100)
     const startYear = 2000;
     const yearOptions = Array.from({ length: currentYear - startYear + 1 }, (_, i) => startYear + i);
-    createDropdownInput('yearInput', 'Năm', yearOptions, currentYear, updateDates);
+    createDropdownInput('yearInput', 'Năm', yearOptions, currentYear, updateDates, 4);
+    $(document)
+        .off('blur', '#yearInput')
+        .on('blur', '#yearInput', function () {
+            let val = parseInt($(this).val(), 10);
+            if (!Number.isFinite(val) || val > currentYear || val < 0) val = currentYear;
+            $(this).val(val);
+
+            $('#quyInputDropdown').find('.dropdown-item').removeClass('active bg-primary text-white');
+            $('#quyInputDropdown').find(`[data-val="${val}"]`).addClass('active bg-primary text-white');
+
+            updateDates();
+        });
 
     // ================== QUÝ ==================
     if (selectedValue === 'Quy') {
-        createDropdownInput('quyInput', 'Quý', [1, 2, 3, 4], currentQuy, updateDates);
+        createDropdownInput('quyInput', 'Quý', [1, 2, 3, 4], currentQuy, updateDates, 1);
 
         $(document)
             .off('blur', '#quyInput')
             .on('blur', '#quyInput', function () {
                 let val = parseInt($(this).val(), 10);
-                if (!Number.isFinite(val) || val < 1 || val > 4) val = 1;
+                if (!Number.isFinite(val) || val < 1 || val > 4) val = currentQuy;
                 $(this).val(val);
 
                 $('#quyInputDropdown').find('.dropdown-item').removeClass('active bg-primary text-white');
@@ -770,13 +780,13 @@ $('#selectGiaiDoan').change(function () {
 
     // ================== THÁNG ==================
     else if (selectedValue === 'Thang') {
-        createDropdownInput('thangInput', 'Tháng', Array.from({ length: 12 }, (_, i) => i + 1), currentMonth, updateDates);
+        createDropdownInput('thangInput', 'Tháng', Array.from({ length: 12 }, (_, i) => i + 1), currentMonth, updateDates, 2);
 
         $(document)
             .off('blur', '#thangInput')
             .on('blur', '#thangInput', function () {
                 let val = parseInt($(this).val(), 10);
-                if (!Number.isFinite(val) || val < 1 || val > 12) val = 1;
+                if (!Number.isFinite(val) || val < 1 || val > 12) val = currentMonth;
                 $(this).val(val);
 
                 $('#thangInputDropdown').find('.dropdown-item').removeClass('active bg-primary text-white');
