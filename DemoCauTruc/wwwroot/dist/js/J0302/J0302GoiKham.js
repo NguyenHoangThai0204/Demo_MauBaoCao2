@@ -336,6 +336,7 @@ function doExportExcel(finalData, btn, originalHtml) {
             window.URL.revokeObjectURL(url);
         },
         error: function () {
+            console.error("Error exporting Excel data");
         },
         complete: function () {
             btn.html(originalHtml);
@@ -398,6 +399,7 @@ function doExportPdf(finalData, btnElem) {
             window.URL.revokeObjectURL(url);
         })
         .catch(error => {
+            console.error('Error exporting PDF:', error);
         })
         .finally(() => {
             btnElem.innerHTML = '<i class="bi bi-file-earmark-pdf"></i> Xuất PDF';
@@ -504,7 +506,6 @@ $(document).ready(function () {
 });
 
 $('#selectGiaiDoan').change(function () {
-
     const selectedValue = $(this).val();
     const container = $('#selectContainer');
     container.empty();
@@ -519,19 +520,20 @@ $('#selectGiaiDoan').change(function () {
     const currentMonth = new Date().getMonth() + 1;
     const currentQuy = Math.ceil(currentMonth / 3);
 
+    // ================== FUNCTION TẠO DROPDOWN ==================
     function createDropdownInput(id, label, values, defaultValue, onSelect) {
         const html = `
-					<div data-dropdown-wrapper style="width: 45%; position: relative;">
-						<label class="form-label">${label}</label>
-						<input type="number" class="form-control" id="${id}" value="${defaultValue}" autocomplete="off">
-						<div id="${id}Dropdown"
-							style="display:none; position:absolute; top:100%; left:0; width:100%;
-							max-height:200px; overflow-y:auto; z-index:9999; background:white;
-							border:1px solid rgba(0,0,0,.15); border-radius:4px;
-							box-shadow:0 6px 12px rgba(0,0,0,.175);">
-						</div>
-					</div>
-				`;
+            <div data-dropdown-wrapper style="width: 45%; position: relative;">
+                <label class="form-label">${label}</label>
+                <input type="number" class="form-control" id="${id}" value="${defaultValue}" autocomplete="off">
+                <div id="${id}Dropdown"
+                    style="display:none; position:absolute; top:100%; left:0; width:100%;
+                    max-height:200px; overflow-y:auto; z-index:9999; background:white;
+                    border:1px solid rgba(0,0,0,.15); border-radius:4px;
+                    box-shadow:0 6px 12px rgba(0,0,0,.175);">
+                </div>
+            </div>
+        `;
         container.append(html);
 
         const $input = $('#' + id);
@@ -544,9 +546,7 @@ $('#selectGiaiDoan').change(function () {
             if (currentHighlightIndex >= 0 && currentHighlightIndex < items.length) {
                 items.eq(currentHighlightIndex).addClass('active bg-primary text-white');
                 const item = items.eq(currentHighlightIndex)[0];
-                if (item) {
-                    item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                }
+                if (item) item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             }
         }
 
@@ -554,27 +554,30 @@ $('#selectGiaiDoan').change(function () {
             $dropdown.empty();
             currentHighlightIndex = -1;
 
-            const selectedVal = parseInt($input.val(), 10);
-            const fallbackVal = defaultValue;
-            const selectedOrFallback = Number.isFinite(selectedVal) ? selectedVal : fallbackVal;
+            const typedVal = parseInt($input.val(), 10);
+            const typedIsAllowed = Number.isFinite(typedVal) && (values.includes(typedVal) || id === 'yearInput');
 
             let filteredValues = values.filter(v => !filter || v.toString().includes(filter));
-
-            if (!filteredValues.includes(selectedOrFallback)) {
-                filteredValues.unshift(selectedOrFallback);
-            }
-
-            if (filteredValues.length === 0) {
-                $dropdown.append(`<div class="dropdown-item" style="padding:8px 16px; color:#999;"></div>`);
-                return;
+            if (filteredValues.length === 0 && id === 'yearInput') {
+                // Cho phép hiển thị năm nhập vào dù không có trong danh sách
+                if (Number.isFinite(typedVal)) {
+                    filteredValues = [typedVal];
+                } else {
+                    filteredValues = values.slice();
+                }
+            } else if (filteredValues.length === 0) {
+                filteredValues = values.slice();
             }
 
             filteredValues.forEach((val, index) => {
-                const isSelected = val === selectedOrFallback;
-                const item = $(`<a href="#" class="dropdown-item ${isSelected ? 'active bg-primary text-white' : ''}"
-									data-val="${val}" data-index="${index}"
-									style="padding:8px 16px; display:block; text-decoration:none; color:#333; cursor:pointer;">
-									${val}</a>`);
+                const isSelected = typedIsAllowed && val === typedVal;
+                const item = $(` 
+                    <a href="#" class="dropdown-item ${isSelected ? 'active bg-primary text-white' : ''}"
+                       data-val="${val}" data-index="${index}"
+                       style="padding:8px 16px; display:block; text-decoration:none; color:#333; cursor:pointer;">
+                       ${val}
+                    </a>
+                `);
                 item.on('click', function (e) {
                     e.preventDefault();
                     selectItem(val);
@@ -584,9 +587,7 @@ $('#selectGiaiDoan').change(function () {
                     highlightCurrentItem();
                 });
                 $dropdown.append(item);
-                if (isSelected) {
-                    currentHighlightIndex = index;
-                }
+                if (isSelected) currentHighlightIndex = index;
             });
 
             const items = $dropdown.find('.dropdown-item');
@@ -623,9 +624,7 @@ $('#selectGiaiDoan').change(function () {
             const isEscape = key === 'Escape';
             const isTab = key === 'Tab';
 
-            if (isUp || isDown || isEnter || isEscape || isTab) {
-                e.preventDefault();
-            }
+            if (isUp || isDown || isEnter || isEscape || isTab) e.preventDefault();
 
             if (isUp) {
                 currentHighlightIndex = (currentHighlightIndex <= 0) ? items.length - 1 : currentHighlightIndex - 1;
@@ -659,13 +658,14 @@ $('#selectGiaiDoan').change(function () {
             }
         });
 
-        $(document).on('click', function (e) {
+        $(document).off('click.dropdown-' + id).on('click.dropdown-' + id, function (e) {
             if (!$(e.target).closest('[data-dropdown-wrapper]').length) {
                 $dropdown.hide();
             }
         });
     }
 
+    // ================== FORMAT DATE ==================
     function formatDate(date) {
         const day = String(date.getDate()).padStart(2, '0');
         const month = String(date.getMonth() + 1).padStart(2, '0');
@@ -679,17 +679,38 @@ $('#selectGiaiDoan').change(function () {
         return { start: startDate, end: endDate };
     }
 
+    // Hàm highlight năm trong dropdown
+    function highlightYearInDropdown(year) {
+        $('#yearInputDropdown').find('.dropdown-item').removeClass('active bg-primary text-white');
+        const yearItem = $('#yearInputDropdown').find(`[data-val="${year}"]`);
+        if (yearItem.length) {
+            yearItem.addClass('active bg-primary text-white');
+            yearItem[0].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    }
+
+    // ================== UPDATE DATE RANGE ==================
     function updateDates() {
-        const year = parseInt($('#yearInput').val(), 10) || currentYear;
+        let yearRaw = parseInt($('#yearInput').val(), 10);
+        let year = Number.isFinite(yearRaw) ? yearRaw : currentYear;
+
+        // Chỉ kiểm tra năm không âm
+        if (year < 0 || year > currentYear) {
+            year = currentYear;
+            $('#yearInput').val(currentYear);
+            highlightYearInDropdown(currentYear);
+        }
 
         if (selectedValue === 'Nam') {
             $('#ngayTuNgay').val(`01-01-${year}`);
             $('#ngayDenNgay').val(`31-12-${year}`);
         }
         else if (selectedValue === 'Quy') {
-            let quy = parseInt($('#quyInput').val(), 10) || 1;
-            if (quy > 4) quy = 4;
+            let quy = parseInt($('#quyInput').val(), 10);
+            if (!Number.isFinite(quy)) quy = currentQuy;
             if (quy < 1) quy = 1;
+            if (quy > 4) quy = 4;
+            $('#quyInput').val(quy);
 
             const startMonth = (quy - 1) * 3 + 1;
             const endMonth = startMonth + 2;
@@ -697,45 +718,77 @@ $('#selectGiaiDoan').change(function () {
             $('#ngayDenNgay').val(formatDate(new Date(year, endMonth, 0)));
         }
         else if (selectedValue === 'Thang') {
-            let month = parseInt($('#thangInput').val(), 10) || currentMonth;
-            if (month > 12) month = 12;
+            let month = parseInt($('#thangInput').val(), 10);
+            if (!Number.isFinite(month)) month = currentMonth;
             if (month < 1) month = 1;
+            if (month > 12) month = 12;
+            $('#thangInput').val(month);
 
             const { start, end } = getMonthDateRange(year, month);
             $('#ngayTuNgay').val(formatDate(start));
             $('#ngayDenNgay').val(formatDate(end));
         }
         else if (selectedValue === 'Ngay') {
-            const today = new Date(Date.now()); // lấy timestamp hiện tại
+            const today = new Date(Date.now());
             const todayStr = formatDate(today);
-
             $('#ngayTuNgay').val(todayStr);
             $('#ngayDenNgay').val(todayStr);
         }
-        // 🔹 Disable hoặc enable 2 ô input ngày tùy loại
+
         if (selectedValue === 'Nam' || selectedValue === 'Quy' || selectedValue === 'Thang') {
             $('#ngayTuNgay, #ngayDenNgay').prop('disabled', true);
         } else {
             $('#ngayTuNgay, #ngayDenNgay').prop('disabled', false);
         }
 
-        // Đồng bộ lại datepicker với giá trị mới
         $('#ngayTuNgay').datepicker('setDate', $('#ngayTuNgay').val());
         $('#ngayDenNgay').datepicker('setDate', $('#ngayDenNgay').val());
-
     }
 
+    // Tạo dropdown năm với phạm vi rộng hơn (từ 1900 đến 2100)
+    const startYear = 2000;
+    const yearOptions = Array.from({ length: currentYear - startYear + 1 }, (_, i) => startYear + i);
+    createDropdownInput('yearInput', 'Năm', yearOptions, currentYear, updateDates);
 
-    createDropdownInput('yearInput', 'Năm', Array.from({ length: currentYear - 1999 }, (_, i) => 2000 + i), currentYear, updateDates);
-
+    // ================== QUÝ ==================
     if (selectedValue === 'Quy') {
         createDropdownInput('quyInput', 'Quý', [1, 2, 3, 4], currentQuy, updateDates);
-    } else if (selectedValue === 'Thang') {
+
+        $(document)
+            .off('blur', '#quyInput')
+            .on('blur', '#quyInput', function () {
+                let val = parseInt($(this).val(), 10);
+                if (!Number.isFinite(val) || val < 1 || val > 4) val = 1;
+                $(this).val(val);
+
+                $('#quyInputDropdown').find('.dropdown-item').removeClass('active bg-primary text-white');
+                $('#quyInputDropdown').find(`[data-val="${val}"]`).addClass('active bg-primary text-white');
+
+                updateDates();
+            });
+    }
+
+    // ================== THÁNG ==================
+    else if (selectedValue === 'Thang') {
         createDropdownInput('thangInput', 'Tháng', Array.from({ length: 12 }, (_, i) => i + 1), currentMonth, updateDates);
-    } else if (selectedValue === 'Ngay') {
+
+        $(document)
+            .off('blur', '#thangInput')
+            .on('blur', '#thangInput', function () {
+                let val = parseInt($(this).val(), 10);
+                if (!Number.isFinite(val) || val < 1 || val > 12) val = 1;
+                $(this).val(val);
+
+                $('#thangInputDropdown').find('.dropdown-item').removeClass('active bg-primary text-white');
+                $('#thangInputDropdown').find(`[data-val="${val}"]`).addClass('active bg-primary text-white');
+
+                updateDates();
+            });
+    }
+
+    else if (selectedValue === 'Ngay') {
         container.empty();
     }
 
     updateDates();
-
 });
