@@ -9,7 +9,7 @@
 
 <link rel="stylesheet" href="./dist/css/CSS0302/CSS0302Styles.css">
 <link rel="stylesheet" href="~/dist/lib/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
-
+<link href="~/dist/lib/toastr/build/toastr.min.css" rel="stylesheet" />
 
 <div class="card p-1">
 	<div class="container_goiKham">
@@ -145,6 +145,30 @@
 	<!-- Bootstrap Datepicker JS -->
 	<script src="~/dist/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js" defer></script>
 	<script src="~/dist/lib/bootstrap-datepicker/dist/locales/bootstrap-datepicker.vi.min.js" defer></script>
-	<script src="/dist/js/J0302/J0302GoiKham.js" asp-append-version="true" defer></script>
 
+	<script src="~/dist/lib/toastr/build/toastr.min.js" defer></script>
+
+	<script src="/dist/js/J0302/J0302GoiKham.js" asp-append-version="true" defer></script>
+	<script>
+
+		$(document).ready(function() {
+			// Hiển thị thông báo thành công
+			var successMessage = '@Html.Raw(TempData["SuccessMessage"] as string)';
+			if (successMessage) {
+				toastr.success(decodeHTMLEntities(successMessage));
+			}
+
+			// Hiển thị thông báo lỗi
+			var errorMessage = '@Html.Raw(TempData["ErrorMessage"] as string)';
+			if (errorMessage) {
+				toastr.error(decodeHTMLEntities(errorMessage));
+			}
+
+			function decodeHTMLEntities(text) {
+				var textArea = document.createElement('textarea');
+				textArea.innerHTML = text;
+				return textArea.value;
+			}
+		});
+	</script>
 }

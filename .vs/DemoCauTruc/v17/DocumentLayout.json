@@ -11,6 +11,10 @@
       "RelativeMoniker": "D:0:0:{20822F83-8DA8-48A0-967E-A30F76A5FF97}|DemoCauTruc\\DemoCauTruc.csproj|solutionrelative:democautruc\\views\\v0302\\v0302goikham\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{20822F83-8DA8-48A0-967E-A30F76A5FF97}|DemoCauTruc\\DemoCauTruc.csproj|d:\\sixos\\demo_maubaocao2\\democautruc\\service\\s0302\\si0302\\ic0302goikhamservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20822F83-8DA8-48A0-967E-A30F76A5FF97}|DemoCauTruc\\DemoCauTruc.csproj|solutionrelative:democautruc\\service\\s0302\\si0302\\ic0302goikhamservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{20822F83-8DA8-48A0-967E-A30F76A5FF97}|DemoCauTruc\\DemoCauTruc.csproj|d:\\sixos\\demo_maubaocao2\\democautruc\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{20822F83-8DA8-48A0-967E-A30F76A5FF97}|DemoCauTruc\\DemoCauTruc.csproj|solutionrelative:democautruc\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -31,10 +35,6 @@
       "RelativeMoniker": "D:0:0:{20822F83-8DA8-48A0-967E-A30F76A5FF97}|DemoCauTruc\\DemoCauTruc.csproj|solutionrelative:democautruc\\service\\s0302\\s0302goikhamservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{20822F83-8DA8-48A0-967E-A30F76A5FF97}|DemoCauTruc\\DemoCauTruc.csproj|d:\\sixos\\demo_maubaocao2\\democautruc\\service\\s0302\\si0302\\ic0302goikhamservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{20822F83-8DA8-48A0-967E-A30F76A5FF97}|DemoCauTruc\\DemoCauTruc.csproj|solutionrelative:democautruc\\service\\s0302\\si0302\\ic0302goikhamservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{20822F83-8DA8-48A0-967E-A30F76A5FF97}|DemoCauTruc\\DemoCauTruc.csproj|d:\\sixos\\demo_maubaocao2\\democautruc\\wwwroot\\dist\\js\\bienchung.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{20822F83-8DA8-48A0-967E-A30F76A5FF97}|DemoCauTruc\\DemoCauTruc.csproj|solutionrelative:democautruc\\wwwroot\\dist\\js\\bienchung.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
@@ -50,23 +50,11 @@
       "DocumentGroups": [
         {
           "DockedHeight": 22,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "C0302GoiKhamController.cs",
-              "DocumentMoniker": "D:\\Sixos\\Demo_MauBaoCao2\\DemoCauTruc\\Controllers\\C0302\\C0302GoiKhamController.cs",
-              "RelativeDocumentMoniker": "DemoCauTruc\\Controllers\\C0302\\C0302GoiKhamController.cs",
-              "ToolTip": "D:\\Sixos\\Demo_MauBaoCao2\\DemoCauTruc\\Controllers\\C0302\\C0302GoiKhamController.cs",
-              "RelativeToolTip": "DemoCauTruc\\Controllers\\C0302\\C0302GoiKhamController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-16T02:52:31.348Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "_ValidationScriptsPartial.cshtml",
               "DocumentMoniker": "D:\\Sixos\\Demo_MauBaoCao2\\DemoCauTruc\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
               "RelativeDocumentMoniker": "DemoCauTruc\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
@@ -84,14 +72,14 @@
               "RelativeDocumentMoniker": "DemoCauTruc\\wwwroot\\dist\\js\\J0302\\J0302GoiKham.js",
               "ToolTip": "D:\\Sixos\\Demo_MauBaoCao2\\DemoCauTruc\\wwwroot\\dist\\js\\J0302\\J0302GoiKham.js",
               "RelativeToolTip": "DemoCauTruc\\wwwroot\\dist\\js\\J0302\\J0302GoiKham.js",
-              "ViewState": "AgIAAAQCAAAAAAAAAAAiwAECAAA+AAAAAAAAAA==",
+              "ViewState": "AgIAALsAAAAAAAAAAAAcwMYAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2025-08-16T02:48:02.388Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "D:\\Sixos\\Demo_MauBaoCao2\\DemoCauTruc\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "DemoCauTruc\\Views\\Shared\\_Layout.cshtml",
@@ -109,13 +97,39 @@
               "RelativeDocumentMoniker": "DemoCauTruc\\Views\\V0302\\V0302GoiKham\\Index.cshtml",
               "ToolTip": "D:\\Sixos\\Demo_MauBaoCao2\\DemoCauTruc\\Views\\V0302\\V0302GoiKham\\Index.cshtml",
               "RelativeToolTip": "DemoCauTruc\\Views\\V0302\\V0302GoiKham\\Index.cshtml",
-              "ViewState": "AgIAAIsAAAAAAAAAAAAiwJYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAIsAAAAAAAAAAAAuwKMAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-16T02:46:38.449Z"
+              "WhenOpened": "2025-08-16T02:46:38.449Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
+              "Title": "IC0302GoiKhamService.cs",
+              "DocumentMoniker": "D:\\Sixos\\Demo_MauBaoCao2\\DemoCauTruc\\Service\\S0302\\SI0302\\IC0302GoiKhamService.cs",
+              "RelativeDocumentMoniker": "DemoCauTruc\\Service\\S0302\\SI0302\\IC0302GoiKhamService.cs",
+              "ToolTip": "D:\\Sixos\\Demo_MauBaoCao2\\DemoCauTruc\\Service\\S0302\\SI0302\\IC0302GoiKhamService.cs",
+              "RelativeToolTip": "DemoCauTruc\\Service\\S0302\\SI0302\\IC0302GoiKhamService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-16T02:49:31.446Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "C0302GoiKhamController.cs",
+              "DocumentMoniker": "D:\\Sixos\\Demo_MauBaoCao2\\DemoCauTruc\\Controllers\\C0302\\C0302GoiKhamController.cs",
+              "RelativeDocumentMoniker": "DemoCauTruc\\Controllers\\C0302\\C0302GoiKhamController.cs",
+              "ToolTip": "D:\\Sixos\\Demo_MauBaoCao2\\DemoCauTruc\\Controllers\\C0302\\C0302GoiKhamController.cs",
+              "RelativeToolTip": "DemoCauTruc\\Controllers\\C0302\\C0302GoiKhamController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-16T02:52:31.348Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "S0302GoiKhamService.cs",
               "DocumentMoniker": "D:\\Sixos\\Demo_MauBaoCao2\\DemoCauTruc\\Service\\S0302\\S0302GoiKhamService.cs",
               "RelativeDocumentMoniker": "DemoCauTruc\\Service\\S0302\\S0302GoiKhamService.cs",
@@ -127,7 +141,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "P0302BaoCaoGoiKhamPDF.cs",
               "DocumentMoniker": "D:\\Sixos\\Demo_MauBaoCao2\\DemoCauTruc\\PDFDocuments\\P0302\\P0302BaoCaoGoiKhamPDF.cs",
               "RelativeDocumentMoniker": "DemoCauTruc\\PDFDocuments\\P0302\\P0302BaoCaoGoiKhamPDF.cs",
@@ -136,18 +150,6 @@
               "ViewState": "AgIAANwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-16T02:49:39.548Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "IC0302GoiKhamService.cs",
-              "DocumentMoniker": "D:\\Sixos\\Demo_MauBaoCao2\\DemoCauTruc\\Service\\S0302\\SI0302\\IC0302GoiKhamService.cs",
-              "RelativeDocumentMoniker": "DemoCauTruc\\Service\\S0302\\SI0302\\IC0302GoiKhamService.cs",
-              "ToolTip": "D:\\Sixos\\Demo_MauBaoCao2\\DemoCauTruc\\Service\\S0302\\SI0302\\IC0302GoiKhamService.cs",
-              "RelativeToolTip": "DemoCauTruc\\Service\\S0302\\SI0302\\IC0302GoiKhamService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-16T02:49:31.446Z"
             },
             {
               "$type": "Document",

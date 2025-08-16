@@ -163,12 +163,15 @@ function renderPagination() {
 }
 
 // ==================== LỌC DỮ LIỆU ====================
+let firstLoad = true;
 function filterData(isPagination = false) {
     let tuNgay = $('#ngayTuNgay').val();
     let denNgay = $('#ngayDenNgay').val();
-
+    if (!isPagination) {
+        firstLoad = true;
+    }
     if (!isPagination && (!tuNgay || !denNgay)) {
-        alert("Vui lòng chọn cả từ ngày và đến ngày");
+        toastr.error("Vui lòng chọn từ ngày và đến ngày");
         return;
     }
 
@@ -202,7 +205,14 @@ function filterData(isPagination = false) {
                 totalRecords = response.totalRecords || totalRecords;
                 totalPages = response.totalPages || totalPages;
                 window.doanhNghiep = response.doanhNghiep || null;
+               
+                // chỉ hiển thị alert lần đầu
+                if (firstLoad) {
+                    toastr.success("Tải dữ liệu thành công");
+                    firstLoad = false;
+                }
             } else {
+                toastr.error("Không thể tải dữ liệu");
             }
         },
         complete: function () {
@@ -280,13 +290,13 @@ function validateExportDatesAndData() {
 
     if (!tuNgay && !denNgay) {
         if (!window.filteredData || window.filteredData.length === 0) {
-            alert("Không có dữ liệu để xuất");
+            toastr.error("Không có dữ liệu để xuất");
             return false;
         }
         return true;
     }
     if ((tuNgay && !denNgay) || (!tuNgay && denNgay)) {
-        alert("Vui lòng chọn cả từ ngày và đến ngày");
+        toastr.error("Vui lòng chọn cả từ ngày và đến ngày");
         return false;
     }
 
@@ -295,11 +305,11 @@ function validateExportDatesAndData() {
         return new Date(parts[2], parts[1] - 1, parts[0]);
     }
     if (parseDMY(tuNgay) > parseDMY(denNgay)) {
-        alert("Từ ngày phải nhỏ hơn hoặc bằng đến ngày");
+        toastr.error("Từ ngày phải nhỏ hơn hoặc bằng đến ngày");
         return false;
     }
     if (!window.filteredData || window.filteredData.length === 0) {
-        alert("Không có dữ liệu để xuất");
+        toastr.error("Không có dữ liệu để xuất");
         return false;
     }
     return true;
@@ -334,9 +344,11 @@ function doExportExcel(finalData, btn, originalHtml) {
             a.click();
             document.body.removeChild(a);
             window.URL.revokeObjectURL(url);
+            toastr.success("Xuất Excel thành công");
         },
         error: function () {
             console.error("Error exporting Excel data");
+            toastr.error("Xuất Excel thất bại");
         },
         complete: function () {
             btn.html(originalHtml);
@@ -397,9 +409,11 @@ function doExportPdf(finalData, btnElem) {
             a.download = "BaoCaoGoiKham.pdf";
             a.click();
             window.URL.revokeObjectURL(url);
+            toastr.success("Xuất PDF thành công");
         })
         .catch(error => {
-            console.error('Error exporting PDF:', error);
+                console.error('Error exporting PDF:', error);
+    toastr.error("Xuất PDF thất bại");
         })
         .finally(() => {
             btnElem.innerHTML = '<i class="bi bi-file-earmark-pdf"></i> Xuất PDF';
@@ -675,7 +689,12 @@ $('#selectGiaiDoan').change(function () {
                 return;
             }
         });
-
+        $input.on('keypress', function (e) {
+            const invalidChars = ['e', 'E', '+', '-', '.', ','];
+            if (invalidChars.includes(e.key)) {
+                e.preventDefault();
+            }
+        });
         $(document).off('click.dropdown-' + id).on('click.dropdown-' + id, function (e) {
             if (!$(e.target).closest('[data-dropdown-wrapper]').length) {
                 $dropdown.hide();
