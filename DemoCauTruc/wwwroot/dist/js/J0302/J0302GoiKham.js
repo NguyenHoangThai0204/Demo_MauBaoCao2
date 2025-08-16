@@ -206,8 +206,9 @@ function filterData(isPagination = false) {
                 totalPages = response.totalPages || totalPages;
                 window.doanhNghiep = response.doanhNghiep || null;
                
-                // chỉ hiển thị alert lần đầu
-                if (firstLoad) {
+                if (window.filteredData.length === 0) {
+                    toastr.warning("Không có dữ liệu");
+                } else if (firstLoad) {
                     toastr.success("Tải dữ liệu thành công");
                     firstLoad = false;
                 }
@@ -838,4 +839,31 @@ $('#selectGiaiDoan').change(function () {
     }
 
     updateDates();
+});
+
+
+$(document).ready(function () {
+    // Chỉ hiển thị toastr nếu có tham số cụ thể trong URL
+    if (window.location.search.includes('showToast=true')) {
+        var successMessage = '@Html.Raw(TempData["SuccessMessage"] as string)';
+        if (successMessage) {
+            toastr.success(decodeHTMLEntities(successMessage));
+        }
+
+        var errorMessage = '@Html.Raw(TempData["ErrorMessage"] as string)';
+        if (errorMessage) {
+            toastr.error(decodeHTMLEntities(errorMessage));
+        }
+
+        var warningMessage = '@Html.Raw(TempData["WarningMessage"] as string)';
+        if (warningMessage) {
+            toastr.warning(decodeHTMLEntities(warningMessage));
+        }
+    }
+
+    function decodeHTMLEntities(text) {
+        var textArea = document.createElement('textarea');
+        textArea.innerHTML = text;
+        return textArea.value;
+    }
 });
