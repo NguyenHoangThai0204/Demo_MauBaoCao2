@@ -37,6 +37,7 @@ namespace DemoCauTruc.Controllers.C0302
             //}
             //ViewBag.quyenVaiTro = quyenVaiTro;
             //ViewData["Title"] = CommonServices.toEmptyData(quyenVaiTro);
+
             ViewBag.quyenVaiTro = new
             {
                 Them = true,

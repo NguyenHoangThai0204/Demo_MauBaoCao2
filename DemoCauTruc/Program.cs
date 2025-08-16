@@ -27,7 +27,7 @@ builder.Services.AddSession(options =>
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
-builder.Services.AddScoped<IC0302GoiKhamService, C0302GoiKhamService>();
+builder.Services.AddScoped<IC0302GoiKhamService, S0302GoiKhamService>();
 builder.Services.AddHttpContextAccessor();
 // Cấu hình QuestPDF
 QuestPDF.Settings.License = LicenseType.Community;
