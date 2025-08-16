@@ -551,12 +551,29 @@ $('#selectGiaiDoan').change(function () {
             }
         }
 
+        // Trong hàm renderList(), sửa phần kiểm tra giá trị như sau:
         function renderList(filter = '') {
             $dropdown.empty();
             currentHighlightIndex = -1;
 
             const typedVal = parseInt($input.val(), 10);
             const typedIsAllowed = Number.isFinite(typedVal) && (values.includes(typedVal) || id === 'yearInput');
+
+            // Xác định giá trị hiện tại để highlight
+            let highlightVal = typedVal;
+            if ((id === 'quyInput' || id === 'thangInput') &&
+                (!Number.isFinite(typedVal) ||
+                    (id === 'quyInput' && (typedVal < 1 || typedVal > 4)) ||
+                    (id === 'thangInput' && (typedVal < 1 || typedVal > 12)))) {
+
+                // Lấy giá trị hiện tại để highlight nhưng không thay đổi input
+                const now = new Date();
+                if (id === 'quyInput') {
+                    highlightVal = Math.ceil((now.getMonth() + 1) / 3);
+                } else {
+                    highlightVal = now.getMonth() + 1;
+                }
+            }
 
             let filteredValues = values.filter(v => !filter || v.toString().includes(filter));
             if (filteredValues.length === 0 && id === 'yearInput') {
@@ -570,14 +587,15 @@ $('#selectGiaiDoan').change(function () {
             }
 
             filteredValues.forEach((val, index) => {
-                const isSelected = typedIsAllowed && val === typedVal;
+                // Sử dụng highlightVal thay vì typedVal để xác định isSelected
+                const isSelected = Number.isFinite(highlightVal) && val === highlightVal;
                 const item = $(` 
-                    <a href="#" class="dropdown-item ${isSelected ? 'active bg-primary text-white' : ''}"
-                       data-val="${val}" data-index="${index}"
-                       style="padding:8px 16px; display:block; text-decoration:none; color:#333; cursor:pointer;">
-                       ${val}
-                    </a>
-                `);
+            <a href="#" class="dropdown-item ${isSelected ? 'active bg-primary text-white' : ''}"
+               data-val="${val}" data-index="${index}"
+               style="padding:8px 16px; display:block; text-decoration:none; color:#333; cursor:pointer;">
+               ${val}
+            </a>
+        `);
                 item.on('click', function (e) {
                     e.preventDefault();
                     selectItem(val);
