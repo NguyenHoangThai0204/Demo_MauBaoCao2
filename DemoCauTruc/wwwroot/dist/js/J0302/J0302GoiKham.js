@@ -86,8 +86,6 @@ function updateTable(response) {
     const tbody = $('.container_goiKham.right tbody');
     tbody.empty();
 
-    console.log("Dữ liệu nhận được:", response);
-
     if (response.totalRecords !== undefined) {
         totalRecords = response.totalRecords;
         totalPages = response.totalPages;
@@ -205,7 +203,6 @@ function filterData(isPagination = false) {
                 totalPages = response.totalPages || totalPages;
                 window.doanhNghiep = response.doanhNghiep || null;
             } else {
-                console.error("Có lỗi khi lọc dữ liệu");
             }
         },
         complete: function () {
@@ -326,7 +323,6 @@ function doExportExcel(finalData, btn, originalHtml) {
         success: function (data, status, xhr) {
             const contentType = xhr.getResponseHeader('content-type') || '';
             if (!contentType.includes('spreadsheet') && !contentType.includes('vnd.openxmlformats')) {
-                console.error('Tệp trả về không phải Excel');
                 return;
             }
             const blob = new Blob([data], { type: contentType });
@@ -340,7 +336,6 @@ function doExportExcel(finalData, btn, originalHtml) {
             window.URL.revokeObjectURL(url);
         },
         error: function () {
-            console.error('Lỗi khi tạo file Excel');
         },
         complete: function () {
             btn.html(originalHtml);
@@ -368,7 +363,6 @@ $('#btnExportExcelGoiKham').off('click').on('click', function (e) {
                 doExportExcel(allData, btn, originalHtml);
             })
             .catch(err => {
-                console.error('Lỗi khi lấy toàn bộ dữ liệu để xuất:', err);
                 btn.html(originalHtml);
                 btn.prop('disabled', false);
             });
@@ -404,7 +398,6 @@ function doExportPdf(finalData, btnElem) {
             window.URL.revokeObjectURL(url);
         })
         .catch(error => {
-            console.error("Error:", error);
         })
         .finally(() => {
             btnElem.innerHTML = '<i class="bi bi-file-earmark-pdf"></i> Xuất PDF';
@@ -430,7 +423,6 @@ $('#btnExportPDFGoiKham').off('click').on('click', function (e) {
                 doExportPdf(allData, btn);
             })
             .catch(err => {
-                console.error('Lỗi khi lấy toàn bộ dữ liệu để xuất PDF:', err);
                 btn.innerHTML = '<i class="bi bi-file-earmark-pdf"></i> Xuất PDF';
                 btn.disabled = false;
             });
@@ -493,7 +485,6 @@ $(document).ready(function () {
                     setTimeout(() => $('#ngayTuNgay').removeClass('highlight-adjust'), 1000);
                 }
             } catch (e) {
-                console.error("Lỗi định dạng ngày", e);
             }
         }
     }
@@ -532,7 +523,7 @@ $('#selectGiaiDoan').change(function () {
         const html = `
 					<div data-dropdown-wrapper style="width: 45%; position: relative;">
 						<label class="form-label">${label}</label>
-						<input type="text" class="form-control" id="${id}" value="${defaultValue}" autocomplete="off">
+						<input type="number" class="form-control" id="${id}" value="${defaultValue}" autocomplete="off">
 						<div id="${id}Dropdown"
 							style="display:none; position:absolute; top:100%; left:0; width:100%;
 							max-height:200px; overflow-y:auto; z-index:9999; background:white;
